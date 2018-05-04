@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark elegant-color" id="secondnav">
 
     <!-- Navbar brand -->
-    <a class="navbar-brand ml-2" href="#">Pure Food</a>
-    <div class="ml-auto d-none d-md-block">
+    <a class="navbar-brand ml-2" href="./index.php">Pure Food</a>
+    <div class="ml-auto d-none d-lg-block">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <span class="nav-link white-text">Our Partners:</span>
