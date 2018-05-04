@@ -1,0 +1,17 @@
+*{
+	margin: 0;
+	padding: 0;
+	letter-spacing: 0.1em;
+}
+
+body {
+	margin-top: 70px;
+}
+
+main.maincontent {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-rows: repeat(3,1fr);
+	padding: 2vh;
+	grid-gap: 1vh;
+}
