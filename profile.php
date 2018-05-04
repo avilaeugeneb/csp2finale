@@ -1,18 +1,17 @@
 <?php
 session_start();
-
 function get_title(){
-	echo "Index";
+	echo "User Profile";
 } 
 require_once './partials/heading.php';
 require_once './partials/navbar.php';
-
 ?>
 
 <!-- Start your project here-->
 
 
 <main class="maincontent">
+	
 </main>
 
 
