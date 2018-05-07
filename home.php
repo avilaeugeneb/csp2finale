@@ -4,19 +4,22 @@ function get_title(){
 	echo "Home";
 }
 require_once './partials/heading.php';
-require_once './partials/navbar.php';
 ?>
+<main class="content">
+	<?php
+	require_once './partials/navbar.php';
+	?>
 
-<!-- Start your project here-->
+	<!-- Start your project here-->
 
 
-<main class="maincontent">
-	
+
+
+
+
+	<!-- /Project ends here-->
+
 </main>
-
-
-
-<!-- /Project ends here-->
 
 <?php 
 require_once './partials/footer.php';

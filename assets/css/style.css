@@ -31,11 +31,31 @@ nav#mainnav{
 /*****************/
 /*****************/
 
-main.maincontent {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
-	grid-template-rows: repeat(3,1fr);
-	padding: 2vh;
-	grid-gap: 1vh;
-	min-height: 100vh;
+.content {
+	min-height: 50vh;
 }
+
+
+/*****************/
+/*****************/
+/*   Register    */
+/*****************/
+/*****************/
+
+.register{
+	display: grid;
+	place-items: center;
+	padding: 10vh;
+	min-height: 60vh;
+}
+
+.register form {
+	min-width: 50vh;
+}
+
+/*****************/
+/*****************/
+/*     Login     */
+/*****************/
+/*****************/
+

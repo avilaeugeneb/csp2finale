@@ -1,9 +1,10 @@
-<?php
-	session_start();
-	function get_title(){
-		echo "Products";
-	} 
-	require_once './partials/heading.php';
+<?php 
+session_start();
+function get_title(){
+	echo "Kraff Test";
+} 
+
+require_once './partials/heading.php';
 ?>
 <main class="content">
 	<?php
