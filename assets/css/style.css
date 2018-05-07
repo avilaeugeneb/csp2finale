@@ -1,21 +1,45 @@
-/*****************/
-/*****************/
-/*    CSS RESET  */
-/*****************/
-/*****************/
+/*
+*
+* CSS RESETS
+*
+*/
 
 *{
 	margin: 0;
 	padding: 0;
 	letter-spacing: 0.1em;
 	font-size: 0.9rem;
+	box-sizing: border-box;
+}
+/*
+*
+* Universal Declarations
+*
+*/
+
+/* Displaying a Container Grid */
+.grid{
+	display: grid;
+	padding: 1vh;
 }
 
-/*****************/
-/*****************/
-/*  Navigation   */
-/*****************/
-/*****************/
+.grid.page-header{
+	place-items: center;
+	padding: 2vh;
+}
+
+/* Attaching a border */
+.nice-border{
+	border-radius: 0.5vh 2vh 0.5vh 1vh;
+	outline: 0;
+	box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+}
+
+/*
+*
+* Navbars
+*
+*/
 nav#secondnav{
 	max-height: 6vh;
 }
@@ -25,25 +49,24 @@ nav#mainnav{
 	z-index: 10;
 }
 
-/*****************/
-/*****************/
-/*  Main Content */
-/*****************/
-/*****************/
+/*
+*
+* Main Content
+*
+*/
 
-.content {
-	min-height: 50vh;
+main.content {
+	min-height: 75vh;
 }
 
 
-/*****************/
-/*****************/
-/*   Register    */
-/*****************/
-/*****************/
+/*
+*
+* Register
+*
+*/
 
-.register{
-	display: grid;
+.grid.register{
 	place-items: center;
 	padding: 10vh;
 	min-height: 60vh;
@@ -53,9 +76,35 @@ nav#mainnav{
 	min-width: 50vh;
 }
 
-/*****************/
-/*****************/
-/*     Login     */
-/*****************/
-/*****************/
+/*
+*
+* Log In
+*
+*/
 
+.grid.login{
+	place-items: center;
+	padding: 10vh;
+	min-height: 60vh;
+}
+
+.login form {
+	min-width: 50vh;
+}
+
+/*
+*
+* Catalog
+*
+*/
+.grid.catalog{
+	grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
+	grid-template-rows: auto;
+	margin: 2vh;
+}
+
+.grid.item{
+	place-items: center;
+	padding: 2vh;
+	margin: 1vh; 
+}

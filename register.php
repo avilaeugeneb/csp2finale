@@ -13,7 +13,7 @@ require_once './partials/heading.php';
 	<!-- Start your project here-->
 
 
-	<section class="register">
+	<section class="grid register">
 		
 		<!-- Material form register -->
 		<form action="" method="POST">
