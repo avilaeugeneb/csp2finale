@@ -76,6 +76,9 @@ main.content {
 	min-width: 50vh;
 }
 
+.register form div label span {
+	color: red;
+}
 /*
 *
 * Log In

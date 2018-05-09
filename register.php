@@ -15,43 +15,51 @@ require_once './partials/heading.php';
 
 	<section class="grid register">
 		
-		<!-- Material form register -->
-		<form action="" method="POST">
+		<!--form register -->
+		<form action="./lib/register_user.php" method="POST" class="register">
 			<p class="h4 text-center mb-4">Register</p>
 
-			<!-- Material input text -->
+			<!--input text -->
 			<div class="md-form">
 				<i class="fa fa-user prefix grey-text"></i>
-				<input type="text" id="username" name="username" class="form-control">
-				<label for="username">Desired Username</label>
+				<input type="text" id="username" name="username" class="form-control" required>
+				<label for="username">Desired Username
+					<span class="reg-error-username"></span>
+				</label>
 			</div>
 
-			<!-- Material input email -->
+			<!--input email -->
 			<div class="md-form">
 				<i class="fa fa-envelope prefix grey-text"></i>
-				<input type="email" id="usermail" name="usermail" class="form-control">
-				<label for="usermail">Your email</label>
+				<input type="email" id="usermail" name="usermail" class="form-control" required>
+				<label for="usermail">Your email
+					<span class="reg-error-email"></span>
+				</label>
 			</div>
 
-			<!-- Material input email -->
-			<div class="md-form">
-				<i class="fa fa-exclamation-triangle prefix grey-text"></i>
-				<input type="email" id="usermailC" name="usermailC" class="form-control">
-				<label for="usermailC">Confirm your email</label>
-			</div>
-
-			<!-- Material input password -->
+			<!--input password -->
 			<div class="md-form">
 				<i class="fa fa-lock prefix grey-text"></i>
-				<input type="password" id="userpassword" name="userpassword" class="form-control">
-				<label for="userpassword">Your password</label>
+				<input type="password" id="userpassword" name="userpassword" class="form-control" required>
+				<label for="userpassword">Your password
+					<span class="reg-error-pw"></span>
+				</label>
+			</div>
+
+			<!--Confirm password -->
+			<div class="md-form">
+				<i class="fa fa-lock prefix grey-text"></i>
+				<input type="password" id="confirmpassword" name="confirmpassword" class="form-control" required>
+				<label for="confirmpassword">Confirm password
+					<span class="reg-error-cpw"></span>
+				</label>
 			</div>
 
 			<div class="text-center mt-4">
 				<button class="btn btn-primary" type="submit" name="submit" id="submit">Sign Up</button>
 			</div>
 		</form>
-		<!-- Material form register -->
+		<!--form register -->
 
 	</section>
 

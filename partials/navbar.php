@@ -69,7 +69,7 @@
                     } else {
                         echo '
                         <li class="nav-item">
-                        <a class="nav-link" href="./profile.php#mainnav">Profile</a>
+                        <a class="nav-link" href="./profile.php#mainnav">Welcome, ' .$_SESSION['user']. '</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="./logout.php#mainnav">Log-out</a>
