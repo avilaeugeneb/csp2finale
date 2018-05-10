@@ -1,6 +1,3 @@
-	
-
-
 <!--Footer-->
 <footer class="page-footer font-small brown darken-4 pt-4 mt-4">
 
@@ -14,7 +11,7 @@
 				<p>Phone: (02)861-5555</p>
 				<p>Email: purefood@puregroup.com.ph</p>
 				<p>Address:</p>
-				<p> #121 Mahal Ka Nya St.</p>
+				<p> #121 Di Ka Nya Mahal St.</p>
 				<p>Brgy.Kinalimutan, Pinaasa City</p>
 				<p>Republic of Hugotero't Hugotera</p>
 			</div>

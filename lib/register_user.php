@@ -12,4 +12,4 @@ $result = mysqli_query($conn,$register_qry);
 
 mysqli_close($conn);
 
-header("location: ../home.php");
+header("location: ../login.php");

@@ -14,7 +14,7 @@ require_once './partials/heading.php';
 	<section class="grid login">
 		
 		<!-- Login form register -->
-		<form action="./lib/login_user.php" method="POST">
+		<form action="./lib/login_user.php" method="POST" class="loginf">
 			<p class="h4 text-center mb-4">Log In</p>
 
 			<!-- Login input text -->
@@ -30,7 +30,14 @@ require_once './partials/heading.php';
 				<input type="password" id="loginpassword" name="loginpassword" class="form-control">
 				<label for="loginpassword">Your password</label>
 			</div>
-
+			<h6 class="loginerrmsg">
+				<?php 
+					if(isset($_SESSION['errormessage'])){
+						echo $_SESSION['errormessage'];
+					}
+					unset($_SESSION['errormessage']);
+				?>
+			</h6>
 			<div class="text-center mt-4">
 				<button class="btn btn-primary" type="submit" name="submit" id="submit">Log in</button>
 			</div>

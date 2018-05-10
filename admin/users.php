@@ -4,7 +4,7 @@ include_once './adminpartials/header.php';
 include_once './adminpartials/navbar.php';
 
 function get_title(){
-		echo "Admin Page";
+		echo "Products Page";
 	} 
 ?>
 

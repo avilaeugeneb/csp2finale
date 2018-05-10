@@ -10,9 +10,22 @@ $login_qry = "SELECT * FROM users WHERE userUid='$loginuser' AND userPassword='$
 $loginresult = mysqli_query($conn, $login_qry);
 
 if(mysqli_num_rows($loginresult)>0){
-	$_SESSION['user'] = $loginuser;
-	header("location: ../home.php");
+
+	while($row = mysqli_fetch_assoc($loginresult)){
+		if($row['userStatus'] == 2){
+			$_SESSION['errormessage'] = "Your account is deactivated";
+			header('location: ../login.php?accountdeactivated');
+		}
+		else{
+			$_SESSION['user'] = $loginuser;
+			header("location: ../profile.php");
+		}
+	}
+	
+}
+else{
+	$_SESSION['errormessage'] = 'Not yet a user? <a href="register.php">Register</a>';
+	die (header("location: ../login.php?invalidcredentials=true"));
 }
 
 mysqli_close($conn);
-

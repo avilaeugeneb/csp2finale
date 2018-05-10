@@ -11,6 +11,10 @@
 	font-size: 0.9rem;
 	box-sizing: border-box;
 }
+
+h1,h2,h3,h4,h5,h6,p.h4{
+	text-transform: uppercase
+}
 /*
 *
 * Universal Declarations
@@ -30,7 +34,7 @@
 
 /* Attaching a border */
 .nice-border{
-	border-radius: 0.5vh 2vh 0.5vh 1vh;
+	border-radius: 1vh;
 	outline: 0;
 	box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
 }
@@ -76,8 +80,12 @@ main.content {
 	min-width: 50vh;
 }
 
-.register form div label span {
+.register form div label span[class*="error"] {
 	color: red;
+}
+
+.register form div label span[class*="success"]{
+	color: green;
 }
 /*
 *
@@ -93,6 +101,11 @@ main.content {
 
 .login form {
 	min-width: 50vh;
+}
+
+.login form.loginf h6.loginerrmsg {
+	color: red;
+	text-align: right;
 }
 
 /*
@@ -111,3 +124,49 @@ main.content {
 	padding: 2vh;
 	margin: 1vh; 
 }
+
+/*
+*
+* Profile
+*
+*/
+span.profilespan{
+	color: green;
+}
+
+.grid.profile{
+	padding: 5vh;
+	align-items: center;
+}
+
+.grid.userinfo{
+	grid-gap: 2vh;
+}
+
+
+.grid.userinfo .grid.userdetail{
+	grid-template-columns: 2fr 10fr auto;
+	grid-gap: 2vh;
+}
+
+.grid.userinfo .grid.userdetail button {
+	border-radius: 20px;
+}
+
+.grid.buttons {
+	grid-template-columns: auto auto;
+}
+.grid.buttons button{
+	border-radius: 20px;
+}
+
+.grid.buttons .deactivate{
+	justify-self: start;
+}
+.grid.buttons .profilesave {
+	justify-self: end;
+}
+
+
+
+

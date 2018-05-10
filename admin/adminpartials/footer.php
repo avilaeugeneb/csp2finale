@@ -1,0 +1,20 @@
+<!--Footer-->
+<footer class="page-footer font-small elegant-color darken-4 pt-4 mt-4 fixed-bottom footer-copyright py-3 text-center">
+	<a href="#"> PureFood : Ang Online Pamilihan ng Bayan </a>
+</footer>
+<!--/.Footer-->
+
+<!-- SCRIPTS -->
+<!-- JQuery -->
+<script src="../assets/js/jquery-3.2.1.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script src="../assets/js/bootstrapjs/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="../assets/js/bootstrapjs/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script src="../assets/js/bootstrapjs/mdb.min.js"></script>
+<!-- Custom Script -->
+<script src="../assets/js/script.js"></script>
+</body>
+
+</html>
