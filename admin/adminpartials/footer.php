@@ -14,7 +14,7 @@
 <!-- MDB core JavaScript -->
 <script src="../assets/js/bootstrapjs/mdb.min.js"></script>
 <!-- Custom Script -->
-<script src="../assets/js/script.js"></script>
+<script src="./adminassets/js/adminscript.js"></script>
 </body>
 
 </html>

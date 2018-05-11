@@ -30,25 +30,94 @@ h1,h2,h3,h4,h5,h6,p.h4{
 	margin: 5vh auto;
 	padding: 2vh;
 	max-width: 90vh;
+	grid-gap: 1vh;
 }
 
 .grid.tableheader{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: repeat(6,1fr);
 	border: 1px solid black;
 	padding: 1vh;
 }
 
 .grid.tableproducts{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: repeat(6,1fr);
 }
 
 .grid.tableproducts > * {
 	padding: 1vh;
-	border: 0 0 1px 1px solid black;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
-.grid.products .btn.btn-info{
+.grid.tableproducts > *:last-child{
+	border-right: 1px solid black;
+}
+.grid.products .btn{
 	border-radius: 20px;
+	max-width: 20vh;
+}
+
+/* Add Products */
+.grid.addproduct{
+	margin: 5vh auto;
+	padding: 2vh;
+	max-width: 90vh;
+	grid-gap: 1vh;
+}
+
+.grid.addDetails{
+	grid-template-columns: 3fr 10fr;
+	margin: 1vh;
+}
+
+.grid.addDetails input,
+.grid.addDetails select{
+	border-radius: 10px;
+	padding: 0.5vh;
+}
+
+.grid.buttons{
+	grid-template-columns: 10fr auto auto;
+}
+
+.default-none{
+	display: none;
+}
+
+span.addsuccess{
+	color: green;
+}
+
+/*upload product image*/
+
+span#success{
+	color: green;
+}
+
+span#invalid{
+	color: red;
+}
+
+input.submit.uploadbtn{
+	display: none;
+}
+
+input#file{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+input#file + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+a{
+	color: inherit;
+	font-weight: bolder;
 }
