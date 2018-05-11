@@ -27,16 +27,31 @@ h1,h2,h3,h4,h5,h6,p.h4{
 */
 
 .grid.products{
-	margin: 5vh;
+	margin: 5vh auto;
 	padding: 2vh;
+	max-width: 90vh;
 }
 
 .grid.tableheader{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}
-
-.grid.tableheader > * {
 	border: 1px solid black;
 	padding: 1vh;
+}
+
+.grid.tableproducts{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	border: 0 solid black;
+    border-width: 0 0 1px 1px;
+}
+
+.grid.tableproducts > * {
+	border: 0 solid silver;
+    border-width: 1px 1px 0 0;
+	padding: 1vh;
+}
+
+.grid.products .btn.btn-info{
+	border-radius: 20px;
 }
