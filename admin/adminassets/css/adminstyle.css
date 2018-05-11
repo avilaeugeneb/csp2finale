@@ -42,14 +42,11 @@ h1,h2,h3,h4,h5,h6,p.h4{
 .grid.tableproducts{
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	border: 0 solid black;
-    border-width: 0 0 1px 1px;
 }
 
 .grid.tableproducts > * {
-	border: 0 solid silver;
-    border-width: 1px 1px 0 0;
 	padding: 1vh;
+	border: 0 0 1px 1px solid black;
 }
 
 .grid.products .btn.btn-info{
