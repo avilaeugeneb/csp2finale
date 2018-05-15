@@ -117,17 +117,40 @@ main.content {
 * Catalog
 *
 */
-.grid.catalog{
-	grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
-	grid-template-rows: auto;
-	margin: 2vh;
+.grid.catalogcont{
+	grid-template-areas: 
+	'. . phead . .'
+	'sbuttons sbuttons sbuttons sbuttons sbuttons'
+	'catalog catalog catalog catalog catalog'
+	'catalog catalog catalog catalog catalog';
 }
+	
+	.grid.page-header{
+		grid-area: phead;
+	}
 
-.grid.item{
-	place-items: center;
-	padding: 2vh;
-	margin: 1vh; 
-}
+	.grid.sortbuttons{
+		grid-area: sbuttons;
+		grid-template-columns: 1fr 1fr 10fr;
+		position: sticky;
+		top: 20vh;
+	}
+		.grid.sortbuttons label#sortlabel{
+			text-align: right;
+		}
+
+	.grid.catalog{
+		grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
+		grid-template-rows: auto;
+		margin: 2vh;
+		grid-area: catalog;
+	}
+
+		.grid.item{
+			place-items: center;
+			padding: 2vh;
+			margin: 1vh; 
+		}
 
 /*
 *

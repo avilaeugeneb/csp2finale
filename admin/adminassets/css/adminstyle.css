@@ -4,6 +4,20 @@
 *
 */
 
+/*remove spinners for input type number*/
+
+/* For Firefox */
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
 *{
 	margin: 0;
 	padding: 0;
@@ -12,7 +26,7 @@
 	box-sizing: border-box;
 }
 
-h1,h2,h3,h4,h5,h6,p.h4{
+h1,h2,h3,h4,h5,h6,.h4{
 	text-transform: uppercase
 }
 
@@ -25,22 +39,42 @@ h1,h2,h3,h4,h5,h6,p.h4{
 * Products.php
 *
 */
+.row.items{
+	margin: 5vh;
+}
+
+.sidenavitems{
+	position: sticky;
+	top: 0;
+}
+
 
 .grid.products{
-	margin: 5vh auto;
 	padding: 2vh;
-	max-width: 90vh;
 	grid-gap: 1vh;
 }
 
+span.editmsg,
+span.deletemsg,
+span.addsuccess{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-weight: bold;
+	font-size: 1.2rem;
+	letter-spacing: 0.1em;
+	background: rgba(0,0,0,0.1);
+}
+
 .grid.tableheader{
-	grid-template-columns: repeat(6,1fr);
+	grid-template-columns: repeat(7,1fr);
 	border: 1px solid black;
 	padding: 1vh;
 }
 
 .grid.tableproducts{
-	grid-template-columns: repeat(6,1fr);
+	grid-template-columns: repeat(7,1fr);
 }
 
 .grid.tableproducts > * {
@@ -56,12 +90,12 @@ h1,h2,h3,h4,h5,h6,p.h4{
 	border-radius: 20px;
 	max-width: 20vh;
 }
-
+.grid.edititems{
+	grid-template-rows: repeat(3,1fr);
+}
 /* Add Products */
 .grid.addproduct{
-	margin: 5vh auto;
 	padding: 2vh;
-	max-width: 90vh;
 	grid-gap: 1vh;
 }
 
@@ -84,17 +118,17 @@ h1,h2,h3,h4,h5,h6,p.h4{
 	display: none;
 }
 
-span.addsuccess{
+span.addsuccess,
+span#success,
+span.editmsg{
 	color: green;
 }
 
 /*upload product image*/
 
-span#success{
-	color: green;
-}
 
-span#invalid{
+span#invalid,
+span.deletemsg{
 	color: red;
 }
 
@@ -120,4 +154,8 @@ input#file + label {
 a{
 	color: inherit;
 	font-weight: bolder;
+}
+
+input{
+	width: auto;
 }

@@ -146,6 +146,30 @@ $(document).ready(function(){
 			$('input#userCityinput').prop('readonly',true);
 		});
 	});
+
+	/*
+	 * Catalog Sorting	
+	 */
+
+	$('#sortselects').on('change',function(){
+		var sortval = $(this).val();
+		console.log(sortval);	
+		switch(sortval){
+			case 'pName':
+				$('#productscatalog').load('./orderByName.php');
+				break;
+			case 'pCategoryID':
+				$('#productscatalog').load('./orderByCat.php');
+				break;
+			case 'pPrice':
+				$('#productscatalog').load('./orderByPrice.php');
+				break;
+			default:
+				$('#productscatalog').load('./orderByName.php');
+		}
+	});
+
+
 });
 
 // Checks if string is empty, return true if empty

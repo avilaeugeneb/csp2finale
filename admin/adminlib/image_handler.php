@@ -1,28 +1,36 @@
 <?php
 if(isset($_FILES["file"]["type"])){
+
+	$filename = $_FILES["file"]["name"];
 	$validextensions = array("jpeg", "jpg", "png");
-	$temporary = explode(".", $_FILES["file"]["name"]);
+	$temporary = explode(".", $filename);
 	$file_extension = end($temporary);
+	$filetype = $_FILES["file"]["type"];
+	$filesize = $_FILES["file"]["size"];
+	$fileerror = $_FILES["file"]["error"];
+	$filetmp = $_FILES['file']['tmp_name'];
 
-	if((($_FILES["file"]["type"] == "image/png") || ($_FILES["file"]["type"] == "image/jpg") || ($_FILES["file"]["type"] == "image/jpeg")) 
-		&& ($_FILES["file"]["size"] < 100000)//Approx. 100kb files can be uploaded.
+	if((($filetype== "image/png") || ($filetype == "image/jpg") || ($filetype == "image/jpeg")) 
+		&& ($filesize < 1000000)
 		&& in_array($file_extension, $validextensions)){
-		if ($_FILES["file"]["error"] > 0){
-			echo "Return Code: " . $_FILES["file"]["error"] . "<br/><br/>";
+		
+		if ($fileerror > 0){
+			echo "Return Code: " . $fileerror . "<br/><br/>";
 		}else{
-				if (file_exists("upload/" . $_FILES["file"]["name"])) {
-				echo $_FILES["file"]["name"] . " <span id='invalid'><b>already exists.</b></span> ";
-		}else{
+			
+			if (file_exists("../../assets/img/" . $filename)) {
+				echo $filename . " <span id='invalid'><b>already exists.</b></span> ";
+			}else{
 
-			$sourcePath = $_FILES['file']['tmp_name']; // Storing source path of the file in a variable
+				$targetPath = "../../assets/img/".$filename;
+				move_uploaded_file($filetmp,$targetPath) ;
+				echo "<span id='success'>Image Uploaded Successfully...!!</span><br/>";
+			}
+		}	
 
-			$targetPath = "../../assets/img/".$_FILES['file']['name']; // Target path where file is to be stored
-			move_uploaded_file($sourcePath,$targetPath) ; // Moving Uploaded file
-			echo "<span id='success'>Image Uploaded Successfully...!!</span><br/>";
-		}
+	}else{
+		echo "<span id='invalid'>***Invalid file Size or Type***<span>";
 	}
-}else{
-	echo "<span id='invalid'>***Invalid file Size or Type***<span>";
 }
-}
+
 ?>
