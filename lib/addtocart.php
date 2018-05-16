@@ -11,11 +11,12 @@ $result_products = mysqli_query($conn,$product_query);
 
 $productinfo = mysqli_fetch_assoc($result_products);
 
-$_SESSION['cart'][$productinfo['id']] = $quantity * $productinfo['pPrice'];
+$_SESSION['cart'][$productinfo['id']] = $quantity;
+$_SESSION['subtotal'][$productinfo['id']] = $quantity * $productinfo['pPrice'];
 
-$_SESSION['item_count'] = array_sum($_SESSION['cart']);
+$_SESSION['total_amount'] = array_sum($_SESSION['subtotal']);
 
-echo "(₱".$_SESSION['item_count'].")";
+echo "(₱".$_SESSION['total_amount'].")";
 
 
 mysqli_close($conn);

@@ -50,8 +50,8 @@
             <a class="nav-link" href="./cart.php#mainnav"><i class="fa fa-cart-plus" aria-hidden="true"></i>Cart
                 <span class="totalprice">
                     <?php 
-                        if(isset($_SESSION['item_count']))
-                            echo "(₱".$_SESSION['item_count'].")";
+                        if(isset($_SESSION['total_amount']))
+                            echo "(₱".$_SESSION['total_amount'].")";
                     ?>
                 </span></a>
         </li>

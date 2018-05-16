@@ -13,17 +13,23 @@
 				<?php while($products = mysqli_fetch_assoc($result_qry)):?>
 
 					<div class="grid item nice-border" data-pid="<?=$products['id']?>">
-						<h6><?= $products['pName'] ?></h6>
-						<p><?= $products['cName'] ?></p>
+						<div class="text-center">
+							<h6><?= $products['pName'] ?></h6>
+							<p><?= $products['cName'] ?></p>
+						</div>
 						<div>
 							<img src="assets/img/<?= $products['pImage'] ?>" alt="Placeholder Image" class="img-fluid">
 						</div>
 						<p>Price: &#8369;<?= $products['pPrice'] ?></p>
 						<button class="btn btn-success addtocart"><i class="fa fa-cart-plus" aria-hidden="true"></i>Add to Cart</button>
 						<div class="grid cartbuttons d-none" id="cartbtn<?=$products['id']?>">
-							<button onclick="minus(id)"><i class="fa fa-minus-circle text-center" aria-hidden="true"></i></button>	
+							<div class="text-center">
+								<button onclick="minus(id)"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+							</div>
 							<input type="number" name="" min="1" max="500" class="quantity<?=$products['id']?>" value="1">
-							<button onclick="plus(id)"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+							<div class="text-center">
+								<button onclick="plus(id)"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+							</div>
 						</div>
 					</div>
 

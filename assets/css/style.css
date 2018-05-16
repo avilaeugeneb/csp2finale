@@ -177,7 +177,8 @@ span.totalprice{
 		margin: 0 auto;
 		color: #00CA58;
 	}
-	.grid.cartbuttons input{
+	.grid.cartbuttons input,
+	.grid.cartbuttons button i{
 		text-align: center;
 	}
 
@@ -196,8 +197,14 @@ span.totalprice{
 
 .grid.cartheader,
 .grid.cartitems{
-	grid-template-columns: repeat(3,1fr);
+	grid-template-columns: repeat(4,1fr);
 	grid-template-rows: 20px;
+}
+.grid.cartitems p{
+	font-weight: bolder;
+}
+.grid.cartitems:nth-child(even){
+	background: rgba(0,0,0,0.2);
 }
 /*
 *

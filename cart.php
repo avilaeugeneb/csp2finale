@@ -21,16 +21,18 @@ $result_products = mysqli_query($conn,$products_qry);
 	<div class="grid cart">
 		<h2>You Ordered</h2>
 		<div class="grid cartheader">
-			<h4>Product Name</h4>
-			<h4>Product Quantity</h4>
-			<h4>Product Price</h4>
+			<h4>Product</h4>
+			<h4>Quantity</h4>
+			<h4>Price</h4>
+			<h4>Subtotal</h4>
 		</div>
 	<?php while($products = mysqli_fetch_assoc($result_products)):?>
 
 		<div class="grid cartitems">
 			<p><?= $products['pName']?></p>
-			<p><?= $_SESSION['cart'][$products['id']]/$products['pPrice'] ?></p>
 			<p><?= $_SESSION['cart'][$products['id']] ?></p>
+			<p><?= "₱".$products['pPrice'] ?></p>
+			<p><?= "₱".$products['pPrice'] * $_SESSION['cart'][$products['id']] ?></p>
 		</div>
 		
 	<?php endwhile;?>
