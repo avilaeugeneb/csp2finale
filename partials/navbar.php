@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark elegant-color" id="secondnav">
+    <nav class="navbar navbar-expand-lg navbar-dark elegant-color" id="secondnav">
 
     <!-- Navbar brand -->
     <a class="navbar-brand ml-2" href="./index.php">Pure Food</a>
@@ -34,7 +34,7 @@
 
 
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark brown darken-4 scrolling-navbar" id="mainnav">
+<nav class="navbar navbar-expand-lg navbar-dark success-color-dark scrolling-navbar" id="mainnav">
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
@@ -47,7 +47,13 @@
             <a class="nav-link" href="./catalog.php#mainnav">Products</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./cart.php#mainnav">Cart</a>
+            <a class="nav-link" href="./cart.php#mainnav"><i class="fa fa-cart-plus" aria-hidden="true"></i>Cart
+                <span class="totalprice">
+                    <?php 
+                        if(isset($_SESSION['item_count']))
+                            echo "(₱".$_SESSION['item_count'].")";
+                    ?>
+                </span></a>
         </li>
     </ul>
     <!-- Links -->

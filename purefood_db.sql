@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2018 at 10:45 AM
+-- Generation Time: May 16, 2018 at 11:00 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -95,18 +95,53 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `pCategoryID`, `pName`, `pDesc`, `pImage`, `pStocks`, `pPrice`) VALUES
-(1, 1, 'Yakult Cultured Milk ', 'a Probiotic drinks.(5 pcs per pack)', 'yakult.png', 23, '45.00'),
-(2, 7, 'testproduct', 'I am a test product', 'testproduct.png', 121, '122.00'),
-(3, 4, 'jepoy', 'Love ni raia', 'jepoy.png', 100, '100.25'),
-(4, 4, 'renz', 'katabi ko sa right', 'renz.jpg', 20, '15.62'),
-(5, 9, 'ian', 'katabi ni renz', 'ian.png', 2322, '12.26'),
-(6, 2, 'raia', 'love ni jepoy', 'raia.png', 23, '689.00'),
-(7, 3, 'chris', 'love ni mart', 'chris.png', 23656, '15.22'),
-(8, 6, 'mart', 'love ni chris', 'mart.png', 9898, '12.56'),
-(9, 3, 'Spinach', 'Spinach is an edible flowering plant in the family Amaranthaceae native to central and western Asia. Its leaves are eaten as a vegetable. It is an annual plant growing as tall as 30 cm. Spinach may survive over winter in temperate regions.', 'spinach.jpg', 31, '15.00'),
-(10, 2, 'Clover', 'Pinoy Tasty Clover Leaf', 'clover.jpg', 323, '5.00'),
-(11, 2, '', '', 'clover.jpg', 0, '0.00'),
-(12, 5, 'Chris Badette', 'Love na love ni mart', 'chris.jpg', 999, '1000000.00');
+(1, 4, 'Pork Liempo Sobi', '500g, Supersavers RF SS Pork Liempo Sobi ', 'liempo.jpg', 100, '135.00'),
+(2, 1, 'Emperador', '1 Litre Emperador Brandy Light', 'empe.jpg', 85, '119.50'),
+(3, 8, 'PureFoods Corned Beef', '210g', 'cornedbeef.jpg', 100, '87.75'),
+(4, 1, 'Ceres Apple Juice', '1 Litre', 'ceresapple.jpg', 100, '19.50'),
+(5, 1, '7 UP soda in can', '330ML', '7up.jpg', 50, '72.00'),
+(6, 1, 'C2 Apple Green Tea', '1 Litre', 'c2apple.jpg', 56, '41.75'),
+(7, 1, 'Cobra Smart', ' Energy Drink,350ml', 'cobra_smart_fa.jpg', 50, '69.00'),
+(8, 2, 'Oishi Crispy Patata', '90g', 'oishi_crispy_patata_90g.jpg', 50, '18.00'),
+(9, 2, 'Tostitos', ' Restaurant Style, 10oz', 'tostitos_original_restaurant_style_10oz.jpg', 25, '163.75'),
+(10, 2, 'Piattos', '40g', 'piattos_sour_cream_onion_potato_chips_40g.jpg', 25, '36.00'),
+(11, 2, 'Pringles Chips', 'Sour Cream, 110g', 'pringles_sour_cream_110g.jpg', 24, '69.00'),
+(12, 2, 'Roller Coaster', 'Cheddar Potato Rings, 24g', 'rollercoaster.jpg', 26, '17.00'),
+(13, 3, 'Tomato', 'Fresh,250g', 'tomato.jpg', 23, '60.00'),
+(14, 3, 'Carrots', 'Fresh, 250g', 'carrots.jpg', 100, '126.00'),
+(15, 3, 'Jumbo Potato', '250g', 'jumbopotato.jpg', 50, '99.75'),
+(16, 3, 'Onion', 'Fresh,250g', 'onion.jpg', 100, '90.00'),
+(17, 3, 'Cabbage', 'Fresh, 250g', 'cabbage.jpg', 100, '108.00'),
+(18, 4, 'Lechon Kawali Cut', 'Pork Lechon Kawali Cut , 250g', 'kawalicut.jpg', 100, '285.00'),
+(19, 4, 'Pork Longganisa', 'Nueva Cabanatuan, 250g', 'nueva_cabanatuan_skinless_pork_longganisa.jpg', 100, '250.00'),
+(20, 4, 'Pork Tocino', 'Meaty Pork Tocino, 250g', 'nueva_cabanatuan_pork_tocino.jpg', 100, '240.00'),
+(21, 4, 'Pork Cubes', 'Pork Cubes, 250g', 'porkcubes.jpg', 100, '235.00'),
+(22, 4, 'Ox Stripe', 'Ox Stripe, 250g', 'oxstripe.jpg', 100, '195.00'),
+(23, 5, 'Shrimp', 'White Shrimp, 250g ', 'shrimp_2_2017.jpg', 100, '638.00'),
+(24, 5, 'Shrimp B', 'Black Shrimp, 250g', 'shrimp_2017.jpg', 100, '1098.00'),
+(25, 5, 'Squid', 'Large Squid, 250g', 'squid_2017.jpg', 100, '548.00'),
+(26, 5, 'Tilapia', 'Large Tilapia, 250g', 'tilapia_large_2017.jpg', 100, '145.00'),
+(27, 6, 'Anchor UHT', 'FullCream Milk 1 Liter', 'anchor_uht_full_cream_milk_1l.jpg', 100, '76.00'),
+(28, 6, 'Anchor Butter', 'Spreadable, 200g', 'anchorspreadable.jpg', 100, '135.00'),
+(29, 6, 'Anchor Butter', 'Unsalted 227g', 'anchorunsalted227g.jpg', 100, '120.00'),
+(30, 6, 'Queensland Butter', '500g', 'queensland_butter_500g.jpg', 100, '342.00'),
+(31, 6, 'Star Margarine', '250g', 'star_margarine_250g.jpg', 100, '67.00'),
+(32, 7, 'Watermelon', 'White/Black', 'watermelon_white_black_beauty.jpg', 100, '55.00'),
+(33, 7, 'Alfa Fuji Apple', '250g', 'alfa_fuji_apple.jpg', 100, '295.00'),
+(34, 7, 'Mango Ripe', 'Ripe Mango, 250g', 'mango_ripe_large.jpg', 100, '199.00'),
+(35, 7, 'Crimson Grapes', '250g, Fresh', 'crimson_grapes.jpg', 100, '399.00'),
+(36, 7, 'Farm Lemons', 'Yellow Lemons, Fresh. 250g', 'lemon_yellow.jpg', 100, '335.00'),
+(37, 8, 'Campbell', 'Golden Corn Soup', 'campbell.jpg', 100, '64.50'),
+(38, 8, 'Campbell Mushroom Soup', 'Cream of Mushroom Soup, 200z', 'campbellmush.jpg', 100, '57.50'),
+(39, 8, 'CDO Karne Norte', '150g', 'cdo_karne_norte_150g.jpg', 100, '26.50'),
+(40, 8, 'Tulips Pork', 'Luncheon Meat, 340g', 'tulip_pork_luncheon_meat_340g.jpg', 100, '100.00'),
+(41, 8, 'Maling', 'Pork Luncheon Meat, 170g', 'maling_pork_luncheon_meat_170g.jpg', 100, '43.50'),
+(42, 8, 'Chinese-style Luncheon Meat', 'Chinese-style Luncheon Meat, 165g', 'purefoods_chinese_luncheon_meat_165g.jpg', 100, '32.50'),
+(43, 8, 'Highlands Corned Beef', '180g', 'highlands_corned_beef_180g_new.jpg', 100, '52.25'),
+(44, 9, 'Tiffany Hotdog', '8 Rolls', 'tiffany_hotdog_rolls_8s.jpg', 100, '36.50'),
+(45, 9, 'White King Puto Mix', '200g', 'puto.jpg', 100, '39.00'),
+(46, 9, 'White King Bibingka Mix', '500g', 'bibingka.jpg', 100, '92.00'),
+(47, 9, 'Wheat- Bread', 'Sugar Free , 350g', 'sugar.jpg', 100, '77.00');
 
 -- --------------------------------------------------------
 
@@ -256,7 +291,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `roles`
 --

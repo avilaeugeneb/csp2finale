@@ -13,7 +13,21 @@
 }
 
 h1,h2,h3,h4,h5,h6,p.h4{
-	text-transform: uppercase
+	text-transform: capitalize;
+	font-weight: bold;
+}
+
+/*remove spinners for input type number*/
+
+/* For Firefox */
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+/* Webkit browsers like Safari and Chrome */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 a{
@@ -40,7 +54,7 @@ a{
 .nice-border{
 	border-radius: 1vh;
 	outline: 0;
-	box-shadow: 2px 2px 3px 0 rgba(0,0,0,0.5);
+	box-shadow: 2px 2px 3px 2px rgba(0,0,0,0.5);
 }
 
 /*
@@ -117,41 +131,74 @@ main.content {
 * Catalog
 *
 */
-.grid.catalogcont{
-	grid-template-areas: 
-	'. . phead . .'
-	'sbuttons sbuttons sbuttons sbuttons sbuttons'
-	'catalog catalog catalog catalog catalog'
-	'catalog catalog catalog catalog catalog';
+.grid.productscont{
+	padding: 5vh;
+	grid-template-columns: 2fr 10fr;
 }
-	
-	.grid.page-header{
-		grid-area: phead;
-	}
-
-	.grid.sortbuttons{
-		grid-area: sbuttons;
-		grid-template-columns: 1fr 1fr 10fr;
-		position: sticky;
-		top: 20vh;
-	}
-		.grid.sortbuttons label#sortlabel{
-			text-align: right;
-		}
 
 	.grid.catalog{
-		grid-template-columns: repeat(auto-fill,minmax(270px,1fr));
+		grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
 		grid-template-rows: auto;
-		margin: 2vh;
 		grid-area: catalog;
 	}
 
 		.grid.item{
 			place-items: center;
-			padding: 2vh;
-			margin: 1vh; 
+			padding: 1vh;
+			margin: 1vh;
+			grid-template-rows: repeat(auto-fill, minmax(1vh,10vh));
+			grid-gap: 1vh;
+			font-size: 0.5	rem;
 		}
 
+		.grid.item div img{
+			height: 15vh;
+		}
+span.totalprice{
+	color: white;
+	font-weight: bold;
+}
+
+.grid.cartbuttons{
+	grid-template-columns: repeat(3,1fr);
+	grid-gap: 1vh;
+}
+	.grid.cartbuttons button{
+		border-radius: 50%;
+		width: 4vh;
+		height: 4vh;
+		outline: none;
+		border: 0;
+		background: transparent;
+	}
+	.grid.cartbuttons button i{
+		font-size: 4vh;
+		line-height: 4vh;
+		margin: 0 auto;
+		color: #00CA58;
+	}
+	.grid.cartbuttons input{
+		text-align: center;
+	}
+
+	.grid.cartbuttons button:hover{
+		cursor: pointer;
+	}
+
+/*
+*
+* Cart
+*
+*/
+.grid.cart{
+	padding: 5vh;
+}
+
+.grid.cartheader,
+.grid.cartitems{
+	grid-template-columns: repeat(3,1fr);
+	grid-template-rows: 20px;
+}
 /*
 *
 * Profile

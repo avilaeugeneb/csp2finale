@@ -47,7 +47,7 @@ $("#uploadimage").on('submit',(function(e) {
 
 	$.ajax({
 		url: "./adminlib/image_handler.php", 
-		type: "POST",             
+		type: "POST",
 		data: new FormData(this),
 		contentType: false,      
 		cache: false,             
@@ -62,6 +62,15 @@ $('input#file').on('change',function(e){
 	var label = $('label.filelabel');
 	var labelVal = label.html();
 	labelVal = label.html(fileName);
+});
+
+//Clear fields 
+$('.clearfields').on('click',function(){
+	$('#addpName').val('');
+ 	$('#addpDesc').val('');
+ 	$('#addpImage').val('');
+ 	$('#addpStocks').val('');
+ 	$('#addpPrice').val('');
 });
 //Edit/Update Items
 

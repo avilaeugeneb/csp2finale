@@ -1,5 +1,5 @@
 <!--Footer-->
-<footer class="page-footer font-small brown darken-4 pt-4 mt-4">
+<footer class="page-footer font-small success-color-dark pt-4 mt-4">
 
 	<!--Footer Links-->
 	<div class="container-fluid text-center text-md-left">

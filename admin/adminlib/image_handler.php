@@ -23,7 +23,7 @@ if(isset($_FILES["file"]["type"])){
 			}else{
 
 				$targetPath = "../../assets/img/".$filename;
-				move_uploaded_file($filetmp,$targetPath) ;
+				move_uploaded_file($filetmp,$targetPath);
 				echo "<span id='success'>Image Uploaded Successfully...!!</span><br/>";
 			}
 		}	

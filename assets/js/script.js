@@ -152,23 +152,48 @@ $(document).ready(function(){
 	 */
 
 	$('#sortselects').on('change',function(){
-		var sortval = $(this).val();
-		console.log(sortval);	
+		var sortval = $(this).val();	
 		switch(sortval){
 			case 'pName':
-				$('#productscatalog').load('./orderByName.php');
+				$('.catalogitems').load('./orderByName.php');
 				break;
 			case 'pCategoryID':
-				$('#productscatalog').load('./orderByCat.php');
+				$('.catalogitems').load('./orderByCat.php');
 				break;
 			case 'pPrice':
-				$('#productscatalog').load('./orderByPrice.php');
+				$('.catalogitems').load('./orderByPrice.php');
 				break;
 			default:
-				$('#productscatalog').load('./orderByName.php');
+				$('.catalogitems').load('./orderByName.php');
 		}
 	});
 
+	/*
+ 	 * Add to Cart
+ 	 */
+
+ 	$('.catalogtabs:nth-child(1)').addClass('show active');
+
+	$('.addtocart').on('click',function(){
+		var pID = $(this).parent().data('pid');
+		var qtyclass = '.quantity'+pID;
+		var btnclass = '#cartbtn'+pID;
+		var qty = parseInt($(qtyclass).val());
+
+		console.log(qty);
+		
+		$.ajax({
+			url:'./lib/addtocart.php',
+			method:'POST',
+			data:{'pid':pID,'quantity':qty}
+		}).done(function(data){
+			$('span.totalprice').html(data);
+			$(btnclass).toggleClass('d-none');
+		});
+
+		$(this).toggleClass('d-none');
+		
+	});
 
 });
 
@@ -176,3 +201,5 @@ $(document).ready(function(){
 function isEmpty(str) {
     return (!str || str.length == 0);
 }
+
+
