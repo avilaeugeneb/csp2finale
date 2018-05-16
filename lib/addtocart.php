@@ -11,12 +11,21 @@ $result_products = mysqli_query($conn,$product_query);
 
 $productinfo = mysqli_fetch_assoc($result_products);
 
-$_SESSION['cart'][$productinfo['id']] = $quantity;
-$_SESSION['subtotal'][$productinfo['id']] = $quantity * $productinfo['pPrice'];
+if($quantity<=0){
+    unset($_SESSION['cart'][$productinfo['id']]);
+    unset($_SESSION['subtotal'][$productinfo['id']]);
 
-$_SESSION['total_amount'] = array_sum($_SESSION['subtotal']);
+    $_SESSION['total_amount'] = array_sum($_SESSION['subtotal']);
+    echo "(₱".$_SESSION['total_amount'].")";
+    die;
+}else{
+    $_SESSION['cart'][$productinfo['id']] = $quantity;
+    $_SESSION['subtotal'][$productinfo['id']] = $quantity * $productinfo['pPrice'];
 
-echo "(₱".$_SESSION['total_amount'].")";
+    $_SESSION['total_amount'] = array_sum($_SESSION['subtotal']);
+
+    echo "(₱".$_SESSION['total_amount'].")";
+}
 
 
 mysqli_close($conn);

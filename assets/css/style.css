@@ -198,13 +198,20 @@ span.totalprice{
 .grid.cartheader,
 .grid.cartitems{
 	grid-template-columns: repeat(4,1fr);
-	grid-template-rows: 20px;
+	grid-template-rows: minmax(20px, 40px);
 }
 .grid.cartitems p{
 	font-weight: bolder;
 }
 .grid.cartitems:nth-child(even){
 	background: rgba(0,0,0,0.2);
+}
+.grid.totalcont{
+	grid-template-columns: 5fr 1fr;
+}
+.grid.totalcont > h5 {
+	display: grid;
+	place-items: center;
 }
 /*
 *

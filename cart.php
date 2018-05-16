@@ -7,7 +7,7 @@ require_once './lib/connect.php';
 require_once './partials/heading.php';
 $indexarrays = array_keys($_SESSION['cart']); //gets all indexes of session cart
 $strarray = implode("','",$indexarrays); //return string of array 
-$products_qry = "SELECT * FROM products WHERE id IN('".$strarray."')";
+$products_qry = "SELECT * FROM products WHERE id IN('".$strarray."') ORDER BY pName";
 $result_products = mysqli_query($conn,$products_qry); 
 
 ?>
@@ -36,6 +36,10 @@ $result_products = mysqli_query($conn,$products_qry);
 		</div>
 		
 	<?php endwhile;?>
+		<div class="grid totalcont">
+			<h2 class="text-right">Total Amount : </h2>
+			<h5><?= "₱".$_SESSION['total_amount'] ?></h5>
+		</div>
 	</div>
 
 

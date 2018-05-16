@@ -148,27 +148,6 @@ $(document).ready(function(){
 	});
 
 	/*
-	 * Catalog Sorting	
-	 */
-
-	$('#sortselects').on('change',function(){
-		var sortval = $(this).val();	
-		switch(sortval){
-			case 'pName':
-				$('.catalogitems').load('./orderByName.php');
-				break;
-			case 'pCategoryID':
-				$('.catalogitems').load('./orderByCat.php');
-				break;
-			case 'pPrice':
-				$('.catalogitems').load('./orderByPrice.php');
-				break;
-			default:
-				$('.catalogitems').load('./orderByName.php');
-		}
-	});
-
-	/*
  	 * Add to Cart
  	 */
 
@@ -180,7 +159,10 @@ $(document).ready(function(){
 		var btnclass = '#cartbtn'+pID;
 		var qty = parseInt($(qtyclass).val());
 
-		console.log(qty);
+		if(qty==0){
+			$(qtyclass).val(1);
+			qty = 1;
+		}
 		
 		$.ajax({
 			url:'./lib/addtocart.php',
@@ -195,11 +177,56 @@ $(document).ready(function(){
 		
 	});
 
+	$('.inputqty').on('blur',function(){
+		var pID = $(this).parent().parent().data('pid');
+		var qtyclass = '.quantity'+pID;
+		var qty = parseInt($(qtyclass).val());
+
+		$.ajax({
+			url:'./lib/addtocart.php',
+			method:'POST',
+			data:{'pid':pID,'quantity':qty}
+		}).done(function(data){
+			$('span.totalprice').html(data);
+		});
+	});
+
+	$('.plusbtn,.minusbtn').on('click',function(){
+		var pID = $(this).parent().parent().parent().data('pid');
+		var qtyclass = '.quantity'+pID;
+		var qty = parseInt($(qtyclass).val());
+
+		if(qty==0){
+			$(this).parent().parent().siblings('.addtocart').toggleClass('d-none');
+			$(this).parent().parent().toggleClass('d-none');
+		}	
+
+		$.ajax({
+			url:'./lib/addtocart.php',
+			method:'POST',
+			data:{'pid':pID,'quantity':qty}
+		}).done(function(data){
+			$('span.totalprice').html(data);
+		});
+	});
+
 });
 
 // Checks if string is empty, return true if empty
 function isEmpty(str) {
     return (!str || str.length == 0);
+}
+
+//adding quantity to specific cart item
+function plus(id){
+	var qtyclass = '.quantity'+id;
+	$(qtyclass).val(parseInt($(qtyclass).val())+1);
+}
+
+//subtracting quantity to specific cart item
+function minus(id){
+	var qtyclass = '.quantity'+id;
+	$(qtyclass).val(parseInt($(qtyclass).val())-1);
 }
 
 

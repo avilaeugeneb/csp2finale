@@ -24,11 +24,11 @@
 						<button class="btn btn-success addtocart"><i class="fa fa-cart-plus" aria-hidden="true"></i>Add to Cart</button>
 						<div class="grid cartbuttons d-none" id="cartbtn<?=$products['id']?>">
 							<div class="text-center">
-								<button onclick="minus(id)"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
+								<button class="minusbtn" onclick="minus(<?=$products['id']?>)"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>
 							</div>
-							<input type="number" name="" min="1" max="500" class="quantity<?=$products['id']?>" value="1">
+							<input type="number" name="" min="1" max="500" class="quantity<?=$products['id']?> inputqty" value="1">
 							<div class="text-center">
-								<button onclick="plus(id)"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+								<button class="plusbtn" onclick="plus(<?=$products['id']?>)"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
 							</div>
 						</div>
 					</div>
