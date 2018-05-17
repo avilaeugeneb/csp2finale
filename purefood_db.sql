@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2018 at 11:00 AM
+-- Generation Time: May 17, 2018 at 10:26 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -98,7 +98,7 @@ INSERT INTO `products` (`id`, `pCategoryID`, `pName`, `pDesc`, `pImage`, `pStock
 (1, 4, 'Pork Liempo Sobi', '500g, Supersavers RF SS Pork Liempo Sobi ', 'liempo.jpg', 100, '135.00'),
 (2, 1, 'Emperador', '1 Litre Emperador Brandy Light', 'empe.jpg', 85, '119.50'),
 (3, 8, 'PureFoods Corned Beef', '210g', 'cornedbeef.jpg', 100, '87.75'),
-(4, 1, 'Ceres Apple Juice', '1 Litre', 'ceresapple.jpg', 100, '19.50'),
+(4, 1, 'Ceres Apple Juice', '1 Litre', 'ceresapple.jpg', 1001, '19.50'),
 (5, 1, '7 UP soda in can', '330ML', '7up.jpg', 50, '72.00'),
 (6, 1, 'C2 Apple Green Tea', '1 Litre', 'c2apple.jpg', 56, '41.75'),
 (7, 1, 'Cobra Smart', ' Energy Drink,350ml', 'cobra_smart_fa.jpg', 50, '69.00'),
@@ -107,7 +107,7 @@ INSERT INTO `products` (`id`, `pCategoryID`, `pName`, `pDesc`, `pImage`, `pStock
 (10, 2, 'Piattos', '40g', 'piattos_sour_cream_onion_potato_chips_40g.jpg', 25, '36.00'),
 (11, 2, 'Pringles Chips', 'Sour Cream, 110g', 'pringles_sour_cream_110g.jpg', 24, '69.00'),
 (12, 2, 'Roller Coaster', 'Cheddar Potato Rings, 24g', 'rollercoaster.jpg', 26, '17.00'),
-(13, 3, 'Tomato', 'Fresh,250g', 'tomato.jpg', 23, '60.00'),
+(13, 3, 'Tomato', 'Fresh,250g', 'tomato.jpg', 23111, '60.00'),
 (14, 3, 'Carrots', 'Fresh, 250g', 'carrots.jpg', 100, '126.00'),
 (15, 3, 'Jumbo Potato', '250g', 'jumbopotato.jpg', 50, '99.75'),
 (16, 3, 'Onion', 'Fresh,250g', 'onion.jpg', 100, '90.00'),
@@ -291,7 +291,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 --
 -- AUTO_INCREMENT for table `roles`
 --
