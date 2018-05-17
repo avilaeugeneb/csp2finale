@@ -36,7 +36,7 @@ h1,h2,h3,h4,h5,h6,.h4{
 
 /*
 *
-* Products.php
+* items.php
 *
 */
 .row.items{
@@ -113,6 +113,22 @@ span.addsuccess{
 .grid.buttons{
 	grid-template-columns: 10fr auto auto;
 }
+
+.selectcat{
+	width: 4vh;
+}
+
+	.selectcat > *{
+		width: 250%;
+	}
+
+.grid.imagecell{
+	place-items: center;	
+}
+	.grid.imagecell > img{
+		width: 8vh;
+		height: 8vh;
+	}
 
 .default-none{
 	display: none;

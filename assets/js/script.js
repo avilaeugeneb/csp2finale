@@ -210,6 +210,56 @@ $(document).ready(function(){
 		});
 	});
 
+	/*
+ 	 * Edit Cart
+ 	 */
+
+ 	$('.editinputqty').on('blur',function(){
+ 		var inputqty = $(this).val();
+ 		var subprice = $(this).parent().siblings('.subprice');
+ 		var unitprice = parseFloat($(this).parent().siblings('.unitprice').data('unitprice'));
+ 		var itemid = $(this).parent().parent().data('productid');
+ 		var newsubprice = inputqty * unitprice;
+ 		subprice.html("₱"+newsubprice);
+
+ 		var uprices = $('.unitprice');
+ 		var qtys = $('.editinputqty');
+ 		var totalprice = 0;
+
+ 		for (var i=0; i < uprices.length; i++) {
+ 			var uprice = uprices[i].attributes[1].value;
+ 			var qty = qtys[i].value;
+ 			var subtotal = uprice * qty;
+ 			totalprice += subtotal;
+
+ 		}
+ 		totalprice = totalprice.toLocaleString(undefined, {
+		  minimumFractionDigits: 2,
+		  maximumFractionDigits: 2
+		});
+ 		$('.totalpricebot').html('₱'+totalprice);
+ 		
+
+ 		$.ajax({
+			url:'./lib/addtocart.php',
+			method:'POST',
+			data:{'pid':itemid,'quantity':inputqty}
+		}).done(function(data){
+			$('span.totalprice').html(data);
+		});
+ 	});
+
+ 	$('button.logincart').on('click',function(){
+ 		window.location.href = './login.php';
+ 	});
+
+ 	$('button.registercart').on('click',function(){
+ 		window.location.href = './register.php';
+ 	});
+
+ 	/*
+ 	 * Delete Item on cart
+ 	 */
 });
 
 // Checks if string is empty, return true if empty

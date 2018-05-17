@@ -17,8 +17,15 @@ if(mysqli_num_rows($loginresult)>0){
 			header('location: ../login.php?accountdeactivated');
 		}
 		else{
-			$_SESSION['user'] = $loginuser;
-			header("location: ../profile.php");
+			if(isset($_SESSION['cart'])){
+				$_SESSION['user'] = $loginuser;
+				header("location: ../checkout.php");
+			}
+			else{
+				$_SESSION['user'] = $loginuser;
+				header("location: ../profile.php");
+			}
+			
 		}
 	}
 	

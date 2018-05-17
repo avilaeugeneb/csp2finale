@@ -154,6 +154,7 @@ main.content {
 		.grid.item div img{
 			height: 15vh;
 		}
+
 span.totalprice{
 	color: white;
 	font-weight: bold;
@@ -203,16 +204,48 @@ span.totalprice{
 .grid.cartitems p{
 	font-weight: bolder;
 }
+
+.editqty input {
+	border-radius: 20px;
+	min-width: 4vw;
+	max-width: 6vw;
+	text-align: center;
+	outline: none;
+	border: 0;
+	background: rgba(0,0,0,0.5);
+	color: white;
+	padding: 0.5vh;
+}
+
+.editqty i{
+	font-size: 2.5vh;
+	cursor: pointer;
+}
+	.editqty i:nth-child(2){
+		color: #00CA58;
+	}
+
+	.editqty i:nth-child(3){
+		color: red;
+	}
+
 .grid.cartitems:nth-child(even){
 	background: rgba(0,0,0,0.2);
 }
 .grid.totalcont{
-	grid-template-columns: 5fr 1fr;
+	grid-template-columns: 5fr 2fr;
+	grid-gap: 1vh;
+}
+.grid.totalcont > button {
+	letter-spacing: 1em;
+	font-weight: bolder;
 }
 .grid.totalcont > h5 {
 	display: grid;
 	place-items: center;
 }
+
+
 /*
 *
 * Profile

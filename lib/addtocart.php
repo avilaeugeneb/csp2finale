@@ -17,13 +17,12 @@ if($quantity<=0){
 
     $_SESSION['total_amount'] = array_sum($_SESSION['subtotal']);
     echo "(₱".$_SESSION['total_amount'].")";
-    die;
 }else{
-    $_SESSION['cart'][$productinfo['id']] = $quantity;
+    $_SESSION['cart'][$productinfo['id']] = intval($quantity);
     $_SESSION['subtotal'][$productinfo['id']] = $quantity * $productinfo['pPrice'];
 
     $_SESSION['total_amount'] = array_sum($_SESSION['subtotal']);
-
+    $_SESSION['total_amount'] = number_format($_SESSION['total_amount'],2);
     echo "(₱".$_SESSION['total_amount'].")";
 }
 

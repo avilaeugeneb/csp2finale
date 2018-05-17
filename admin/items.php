@@ -9,9 +9,6 @@ function get_title(){
 
 $products_qry = "SELECT p.id,p.pName,p.pDesc,p.pImage,p.pStocks,p.pPrice,c.cName FROM products p JOIN categories c WHERE c.id = p.pCategoryID";
 $result_productsqry = mysqli_query($conn,$products_qry);
-
-$categories_qry = "SELECT id,cName FROM categories WHERE parent = 0";
-$result_catqry = mysqli_query($conn,$categories_qry);
 ?>
 <div class="row items">
 	<div class="col-md-2 sidenavitems">
@@ -106,15 +103,23 @@ $result_catqry = mysqli_query($conn,$categories_qry);
 									</button>
 								</div>
 								<!-- pImage Cell -->
-								<div class="grid pCell" data-productid="<?= $product['id'] ?>">
+								<div class="grid pCell imagecell" data-productid="<?= $product['id'] ?>">
 									<img src="../assets/img/<?= $product['pImage']; ?>" class="img-fluid">
 								</div>
 								<!-- pCategory Cell -->
 								<div class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="6">
-									<div class="cellItem<?= $product['id'] ?>col6">
-										<div class="cellItem<?= $product['id'] ?>col6ReadOnly">
-											<?= $product['cName']; ?>
-										</div>
+									<div class="cellItem<?= $product['id'] ?>col6 selectcat">
+										<select name="pCategory" id="addpCategory">
+											<option value="<?= $product['id'] ?>"><?= $product['cName'] ?></option>
+
+											<?php 
+											$categories_qry = "SELECT id,cName FROM categories WHERE (parent = 0) AND (id !=".$product['id']." )";
+											$result_catqry = mysqli_query($conn,$categories_qry);
+
+											while($category = mysqli_fetch_assoc($result_catqry)):?>
+												<option value="<?php$category['id'] ?>"><?= $category['cName']?></option>
+											<?php endwhile; ?>
+										</select>
 									</div>
 									<div class="cellItem<?= $product['id'] ?>col6 d-none">
 										<input type="text" value="<?= $product['cName']; ?>" class="cellItem<?= $product['id'] ?>col6input">
