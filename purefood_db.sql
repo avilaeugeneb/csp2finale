@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2018 at 10:26 AM
+-- Generation Time: May 18, 2018 at 10:58 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -175,6 +175,8 @@ CREATE TABLE `users` (
   `userUid` varchar(255) NOT NULL,
   `userEmail` varchar(255) NOT NULL,
   `userPassword` varchar(255) NOT NULL,
+  `userStreet` varchar(255) DEFAULT NULL,
+  `userBrgy` varchar(255) DEFAULT NULL,
   `userCity` varchar(255) DEFAULT NULL,
   `userRole` int(11) NOT NULL DEFAULT '2',
   `userStatus` int(11) NOT NULL DEFAULT '1'
@@ -184,16 +186,18 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `userFirstName`, `userLastName`, `userUid`, `userEmail`, `userPassword`, `userCity`, `userRole`, `userStatus`) VALUES
-(1, 'Eugene', 'Avila', 'admin', 'avila.eugeneb@gmail.com', '71bf842bf28142860ab2712eed45a4d7b2e7f515', 'Pasig', 1, 1),
-(2, NULL, NULL, 'testuser1', '1sdahndma@mail', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, 2, 1),
-(3, NULL, NULL, 'testasdsad', 'sdakldkjsa@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, 2, 1),
-(5, 'TestMaster', 'Ako', 'test123', 'test123@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 'Manila', 2, 2),
-(6, 'Huge', 'Babyboy', 'avilaeugene', 'mail@google.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 'Gotham', 2, 1),
-(8, NULL, NULL, '1', '111213131@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, 2, 1),
-(9, NULL, NULL, 'test123456', '1sdahndma@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, 2, 1),
-(10, NULL, NULL, 'admin00', 'sdajasjdas@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, 2, 1),
-(11, NULL, NULL, 'test123456789', 'test123@mail.com.ph', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, 2, 1);
+INSERT INTO `users` (`id`, `userFirstName`, `userLastName`, `userUid`, `userEmail`, `userPassword`, `userStreet`, `userBrgy`, `userCity`, `userRole`, `userStatus`) VALUES
+(1, 'Eugene', 'Avila', 'admin', 'avila.eugeneb@gmail.com', '71bf842bf28142860ab2712eed45a4d7b2e7f515', NULL, NULL, 'Pasig', 1, 1),
+(2, NULL, NULL, 'testuser1', '1sdahndma@mail', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, NULL, 2, 1),
+(3, NULL, NULL, 'testasdsad', 'sdakldkjsa@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, NULL, 2, 1),
+(5, 'TestMaster', 'Ako', 'test123', 'test123@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, 'Manila', 2, 2),
+(6, 'Huge', 'Babyboy', 'avilaeugene', 'mail@google.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, 'Gotham', 2, 1),
+(8, NULL, NULL, '1', '111213131@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, NULL, 2, 1),
+(9, NULL, NULL, 'test123456', '1sdahndma@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, NULL, 2, 1),
+(10, NULL, NULL, 'admin00', 'sdajasjdas@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, NULL, 2, 1),
+(11, NULL, NULL, 'test123456789', 'test123@mail.com.ph', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, NULL, 2, 1),
+(12, NULL, NULL, 'test120408', 'sdnakdsa@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, NULL, 2, 1),
+(13, '', '', 'hello123', 'hello123@gmail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, '', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -291,7 +295,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 --
 -- AUTO_INCREMENT for table `roles`
 --
@@ -301,7 +305,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `user_status`
 --
