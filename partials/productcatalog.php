@@ -8,12 +8,12 @@
 		?>
 
 		<div class="tab-pane fade in catalogtabs" id="panel<?=$id?>" role="tabpanel">
-			<h4 class="text-center"><?=$cName?></h4>
+			<h4 class="text-center catname"><?=$cName?></h4>
 			<div class="grid catalog">
 				<?php while($products = mysqli_fetch_assoc($result_qry)):?>
 
 					<div class="grid item nice-border" data-pid="<?=$products['id']?>">
-						<div class="text-center">
+						<div class="text-center itemhead">
 							<h6><?= $products['pName'] ?></h6>
 							<p><?= $products['cName'] ?></p>
 						</div>
@@ -21,7 +21,7 @@
 							<img src="assets/img/<?= $products['pImage'] ?>" alt="Placeholder Image" class="img-fluid">
 						</div>
 						<p>Price: &#8369;<?= $products['pPrice'] ?></p>
-						<button class="btn btn-success addtocart"><i class="fa fa-cart-plus" aria-hidden="true"></i>Add to Cart</button>
+						<button class="btn addtocart"><i class="fa fa-cart-plus" aria-hidden="true"></i>Add to Cart</button>
 						<div class="grid cartbuttons d-none" id="cartbtn<?=$products['id']?>">
 							<div class="text-center">
 								<button class="minusbtn" onclick="minus(<?=$products['id']?>)"><i class="fa fa-minus-circle" aria-hidden="true"></i></button>

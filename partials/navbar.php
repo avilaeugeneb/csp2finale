@@ -8,7 +8,7 @@
                 <span class="nav-link white-text">Our Partners:</span>
             </li>
             <li class="nav-item">
-                <a class="nav-link partner-links" href="#">Pure Tools</a>
+                <a class="nav-link partner-links" href="http://puretoolshardware-com.stackstaging.com" target="_blank">Pure Tools</a>
             </li>
 
             <li class="nav-item partner-links">
@@ -34,10 +34,10 @@
 
 
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark success-color-dark scrolling-navbar" id="mainnav">
+<nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar" id="mainnav">
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="./home.php#mainnav">Home</a>
         </li>
         <li class="nav-item">

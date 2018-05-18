@@ -3,6 +3,25 @@
 * CSS RESETS
 *
 */
+/*Colors*/
+/* #00843C - darkgreen */
+/* #2e2e2e - gray */
+/* rgba(76, 175, 80, 1) - lightgreen */
+
+:root{
+	--theme-color: maroon;
+	--vh: 0.8vh;
+	--vw: 0.8vw;
+	--scolor: green;
+	--fcolor: red;
+	--transparent: rgba(0,0,0,0.2);
+	--2fr: repeat(2,1fr);
+	--3fr: repeat(3,1fr);
+	--4fr: repeat(4,1fr);
+	--5fr: repeat(5,1fr);
+	--circle: 50%;
+	--pxvalues: 2px 2px 3px 2px;
+}
 
 *{
 	margin: 0;
@@ -16,7 +35,18 @@ h1,h2,h3,h4,h5,h6,p.h4{
 	text-transform: capitalize;
 	font-weight: bold;
 }
-
+h4.catname,
+div.itemhead > h6,
+.grid.cart h4,
+.grid.cart h5,
+.grid.btshop,
+.grid.checkcont h2,
+.grid.checkcont h4,
+.form-control,
+main.content h5,
+p.p-head{
+	color: var(--theme-color);
+}
 /*remove spinners for input type number*/
 
 /* For Firefox */
@@ -33,6 +63,10 @@ input[type=number]::-webkit-outer-spin-button {
 a{
 	color: inherit;
 }
+
+.btn {
+	background: var(--theme-color);
+}
 /*
 *
 * Universal Declarations
@@ -42,19 +76,19 @@ a{
 /* Displaying a Container Grid */
 .grid{
 	display: grid;
-	padding: 1vh;
+	padding: var(--vh);
 }
 
 .grid.page-header{
 	place-items: center;
-	padding: 2vh;
+	padding: var(--vh);
 }
 
 /* Attaching a border */
 .nice-border{
-	border-radius: 1vh;
+	border-radius: var(--vh);
 	outline: 0;
-	box-shadow: 2px 2px 3px 2px rgba(0,0,0,0.5);
+	box-shadow: var(--pxvalues) var(--transparent);
 }
 
 /*
@@ -63,12 +97,13 @@ a{
 *
 */
 nav#secondnav{
-	max-height: 6vh;
+	max-height: calc(var(--vh)*3);
 }
 nav#mainnav{
 	position: sticky;
 	top: 0;
 	z-index: 10;
+	background: var(--theme-color);
 }
 
 /*
@@ -78,7 +113,7 @@ nav#mainnav{
 */
 
 main.content {
-	min-height: 75vh;
+	min-height: calc(var(--vh)*120);
 }
 
 
@@ -90,20 +125,20 @@ main.content {
 
 .grid.register{
 	place-items: center;
-	padding: 10vh;
-	min-height: 60vh;
+	padding: calc(var(--vh)*10);
+	min-height: calc(var(--vh)*50);
 }
 
 .register form {
-	min-width: 50vh;
+	min-width: calc(var(--vh)*45);
 }
 
 .register form div label span[class*="error"] {
-	color: red;
+	color: var(--fcolor);
 }
 
 .register form div label span[class*="success"]{
-	color: green;
+	color: var(--scolor);
 }
 /*
 *
@@ -113,16 +148,16 @@ main.content {
 
 .grid.login{
 	place-items: center;
-	padding: 10vh;
-	min-height: 60vh;
+	padding: calc(var(--vh)*9);
+	min-height: calc(var(--vh)*50);
 }
 
 .login form {
-	min-width: 50vh;
+	min-width: calc(var(--vw)*40);
 }
 
 .login form.loginf h6.loginerrmsg {
-	color: red;
+	color: var(--scolor);
 	text-align: right;
 }
 
@@ -132,7 +167,7 @@ main.content {
 *
 */
 .grid.productscont{
-	padding: 5vh;
+	padding: calc(var(--vh)*5);
 	grid-template-columns: 2fr 10fr;
 }
 
@@ -144,15 +179,15 @@ main.content {
 
 		.grid.item{
 			place-items: center;
-			padding: 1vh;
-			margin: 1vh;
+			padding: calc(var(--vh)*1);
+			margin: calc(var(--vh)*1);
 			grid-template-rows: repeat(auto-fill, minmax(1vh,10vh));
-			grid-gap: 1vh;
+			grid-gap: calc(var(--vh)*1);
 			font-size: 0.5	rem;
 		}
 
 		.grid.item div img{
-			height: 15vh;
+			height: calc(var(--vh)*15);
 		}
 
 span.totalprice{
@@ -161,11 +196,11 @@ span.totalprice{
 }
 
 .grid.cartbuttons{
-	grid-template-columns: repeat(3,1fr);
-	grid-gap: 1vh;
+	grid-template-columns: var(--3fr);
+	grid-gap: var(--vh);
 }
 	.grid.cartbuttons button{
-		border-radius: 50%;
+		border-radius: var(--circle);
 		width: 4vh;
 		height: 4vh;
 		outline: none;
@@ -176,7 +211,7 @@ span.totalprice{
 		font-size: 4vh;
 		line-height: 4vh;
 		margin: 0 auto;
-		color: #00CA58;
+		color: var(--theme-color);
 	}
 	.grid.cartbuttons input,
 	.grid.cartbuttons button i{
@@ -193,17 +228,36 @@ span.totalprice{
 *
 */
 .grid.cart{
-	padding: 5vh;
+	padding: calc(var(--vh)*5);
 }
+	.grid.btshop{
+		grid-template-columns: 1fr 1fr;
+	}
+	.grid.btshop p{
+		text-align: right;
+		font-weight: bolder;
+	}
 
-.grid.cartheader,
-.grid.cartitems{
-	grid-template-columns: repeat(4,1fr);
-	grid-template-rows: minmax(20px, 40px);
-}
-.grid.cartitems p{
-	font-weight: bolder;
-}
+	.grid.btshop p a{
+		border: 1px solid var(--theme-color);
+		border-radius: 5px;
+		padding: 1vh;
+	}
+
+	.grid.btshop a:hover{
+		color: var(--theme-color);
+		font-size: 1.5em;
+		transform: translateX(-50px);
+	}
+
+	.grid.cartheader,
+	.grid.cartitems{
+		grid-template-columns: repeat(4,1fr);
+		grid-template-rows: minmax(20px, 40px);
+	}
+	.grid.cartitems p{
+		font-weight: bolder;
+	}
 
 .editqty input {
 	border-radius: 20px;
@@ -212,7 +266,7 @@ span.totalprice{
 	text-align: center;
 	outline: none;
 	border: 0;
-	background: rgba(0,0,0,0.5);
+	background: var(--theme-color);
 	color: white;
 	padding: 0.5vh;
 }
@@ -222,7 +276,7 @@ span.totalprice{
 	cursor: pointer;
 }
 	.editqty i:nth-child(2){
-		color: #00CA58;
+		color: var(--theme-color);
 	}
 
 	.editqty i:nth-child(3){
@@ -230,14 +284,14 @@ span.totalprice{
 	}
 
 .grid.cartitems:nth-child(even){
-	background: rgba(0,0,0,0.2);
+	background: var(--transparent);
 }
 .grid.totalcont{
 	grid-template-columns: 5fr 2fr;
 	grid-gap: 1vh;
 }
 .grid.totalcont > button {
-	letter-spacing: 1em;
+	letter-spacing: 0.8em;
 	font-weight: bolder;
 }
 .grid.totalcont > h5 {
@@ -248,26 +302,73 @@ span.totalprice{
 
 /*
 *
+* Checkout
+*
+*/
+.grid.checkcont{
+	grid-template-columns: var(--2fr);
+}
+	.grid.checkout{
+		padding: calc(var(--vh)*2);
+	}
+		.grid.checkheader{
+			grid-template-columns: var(--2fr);
+		}
+
+		.grid.checkitems{
+			grid-template-columns: var(--2fr);
+		}
+			.grid.checkitems:nth-child(even){
+				background: var(--transparent);
+			}
+		.grid.checktotal2{
+			grid-template-columns: var(--2fr);
+		}
+
+	.grid.delivery{
+		padding: calc(var(--vh)*2);
+		position: relative;
+	}
+
+		.formdeliver{
+			position: fixed;
+			top: 15%;
+			right: 5%;
+			z-index: 100;
+		}
+
+.form-control {
+	font-weight: bold;
+	padding: calc(var(--vh)*2);
+}
+
+.md-form .form-control[readonly],
+.md-form input[type=text],
+.md-form input[type=tel]{
+	border-bottom: 1px dotted var(--theme-color);
+}
+/*
+*
 * Profile
 *
 */
 span.profilespan{
-	color: green;
+	color: var(--scolor);
 }
 
 .grid.profile{
-	padding: 5vh;
+	padding: calc(var(--vh)*4);
 	align-items: center;
 }
 
 .grid.userinfo{
-	grid-gap: 2vh;
+	grid-gap: calc(var(--vh)*2);
 }
 
 
 .grid.userinfo .grid.userdetail{
 	grid-template-columns: 2fr 10fr auto;
-	grid-gap: 2vh;
+	grid-gap: calc(var(--vh)*2);
 }
 
 .grid.userinfo .grid.userdetail button {
@@ -287,7 +388,10 @@ span.profilespan{
 .grid.buttons .profilesave {
 	justify-self: end;
 }
-
-
-
+/*
+ * Footer
+ */
+footer.page-footer{
+	background: var(--theme-color);
+}
 

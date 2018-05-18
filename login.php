@@ -39,7 +39,7 @@ require_once './partials/heading.php';
 				?>
 			</h6>
 			<div class="text-center mt-4">
-				<button class="btn btn-primary" type="submit" name="submit" id="submit">Log in</button>
+				<button class="btn" type="submit" name="submit" id="submit">Log in</button>
 			</div>
 		</form>
 		<!-- Login form register -->

@@ -60,7 +60,7 @@ require_once './partials/heading.php';
 			</div>
 
 			<div class="text-center mt-4">
-				<button class="btn btn-primary" type="submit" name="submit" id="register_submit">Sign Up</button>
+				<button class="btn" type="submit" name="submit" id="register_submit">Sign Up</button>
 			</div>
 		</form>
 		<!--form register -->

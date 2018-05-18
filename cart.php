@@ -25,8 +25,10 @@ require_once './partials/heading.php';
 				$products_qry = "SELECT * FROM products WHERE id IN('".$strarray."') ORDER BY pName";
 				$result_products = mysqli_query($conn,$products_qry); 
 			?>
-
-			<h2>Your Cart</h2>
+			<div class="grid btshop">
+				<h2>Your Cart</h2>
+				<p><a href="./catalog.php#mainnav">&#8592;Back to shopping</a></p>
+			</div>
 			<div class="grid cartheader">
 				<h4>Product</h4>
 				<h4>Quantity</h4>
@@ -50,7 +52,15 @@ require_once './partials/heading.php';
 			<?php endwhile;?>
 
 			<div class="grid totalcont">
-				<button class="btn btn-success" data-toggle="modal" data-target="#checkoutmodal"><i class="fa fa-check-square-o" aria-hidden="true"></i>Checkout</button>
+
+				<?php if(isset($_SESSION['user'])):?>
+					<button class="btn checkoutbtn"><i class="fa fa-check-square-o" aria-hidden="true"></i>Checkout</button>
+				<?php endif;?>
+
+				<?php if(!isset($_SESSION['user'])):?>
+					<button class="btn" data-toggle="modal" data-target="#checkoutmodal"><i class="fa fa-check-square-o" aria-hidden="true"></i>Checkout</button>
+				<?php endif;?>
+
 				<div class="grid totalcont">
 					<h4 class="text-center">Total Amount : </h4>
 					<h5 class="totalpricebot"><?= "₱".$_SESSION['total_amount'] ?></h5>
@@ -62,9 +72,10 @@ require_once './partials/heading.php';
 			<h2>Your Cart is Empty!</h2>
 		<?php endif;?>
 
+	</div>
+	<!-- /Project ends here-->
 
-
-		<!-- Central Modal Small -->
+	<!-- Central Modal Small -->
 		<div class="modal fade" id="checkoutmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered" role="document">
 				<div class="modal-content">
@@ -76,7 +87,7 @@ require_once './partials/heading.php';
 					</div>
 					<div class="modal-body grid">
 						<p>Please log in to continue purchasing</p>
-						<button type="button" class="btn btn-success registercart">Register</button>
+						<button type="button" class="btn registercart">Register</button>
 						<p class="text-center">or</p>
 						<button type="button" class="btn btn-info logincart">Log IN</button>
 					</div>
@@ -86,9 +97,6 @@ require_once './partials/heading.php';
 				</div>
 			</div>
 		</div>
-
-
-	<!-- /Project ends here-->
 
 </main>
 

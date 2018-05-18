@@ -128,10 +128,11 @@ $(document).ready(function(){
 		var email = $('input#userEmailinput').val();
 		var city = $('input#userCityinput').val();
 		var userid = $('p.p-head').data('userid');
+
 		$.ajax({
 			url:"./lib/update_profile.php",
 			method:"POST",
-			data: {
+			data:  {
 				"firstName":firstName,
 				"lastName":lastName,
 				"email":email,
@@ -139,11 +140,13 @@ $(document).ready(function(){
 				"userid":userid
 			}
 		}).done(function(data){
+			$('span.profilespan').show();
 			$('span.profilespan').html(data);
 			$('input#userFirstNameinput').prop('readonly',true);
 			$('input#userLastNameinput').prop('readonly',true);
 			$('input#userEmailinput').prop('readonly',true);
 			$('input#userCityinput').prop('readonly',true);
+			$('span.profilespan').fadeOut(3000);
 		});
 	});
 
@@ -231,12 +234,13 @@ $(document).ready(function(){
  			var qty = qtys[i].value;
  			var subtotal = uprice * qty;
  			totalprice += subtotal;
-
  		}
+
  		totalprice = totalprice.toLocaleString(undefined, {
 		  minimumFractionDigits: 2,
 		  maximumFractionDigits: 2
 		});
+
  		$('.totalpricebot').html('₱'+totalprice);
  		
 
@@ -248,13 +252,20 @@ $(document).ready(function(){
 			$('span.totalprice').html(data);
 		});
  	});
+ 	/*
+ 	 * Cart Checkout Buttons
+ 	 */
 
  	$('button.logincart').on('click',function(){
- 		window.location.href = './login.php';
+ 		window.location.href = './login.php#mainnav';
  	});
 
  	$('button.registercart').on('click',function(){
- 		window.location.href = './register.php';
+ 		window.location.href = './register.php#mainnav';
+ 	});
+
+ 	$('button.checkoutbtn').on('click',function(){
+ 		window.location.href = './checkout.php#mainnav';
  	});
 
  	/*
