@@ -9,12 +9,13 @@
 /* rgba(76, 175, 80, 1) - lightgreen */
 
 :root{
-	--theme-color: maroon;
-	--vh: 0.8vh;
-	--vw: 0.8vw;
+	--theme-color: #00843C;
+	--vh: 0.85vh;
+	--vw: 0.85vw;
 	--scolor: green;
 	--fcolor: red;
 	--transparent: rgba(0,0,0,0.2);
+	--transparentx2: rgba(0,0,0,0.6);
 	--2fr: repeat(2,1fr);
 	--3fr: repeat(3,1fr);
 	--4fr: repeat(4,1fr);
@@ -94,6 +95,9 @@ a{
 	place-items: center;
 	padding: var(--vh);
 }
+.grid.page-header.single{
+	padding: calc(var(--vh)*25);
+}
 
 /* Attaching a border */
 .nice-border{
@@ -119,14 +123,92 @@ nav#mainnav{
 
 /*
 *
-* Main Content
+* About Page about.php
 *
 */
 
-/*main.content {
-	min-height: calc(100vh - 200px);
+.grid.aboutpf{
+	font-weight: bold;
+	grid-gap: var(--vh);
 }
-*/
+	.grid.abouthead{
+		height: calc(var(--vh)*100);
+		position: relative;
+		border-radius: 50px;
+		place-items: center;
+	}
+	.grid.imagecont{
+		height: calc(var(--vh)*100);
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		z-index: -1;
+		-webkit-clip-path: polygon(76% 0, 100% 14%, 88% 100%, 13% 100%, 0% 75%, 11% 0);
+		clip-path: polygon(76% 0, 100% 14%, 88% 100%, 13% 100%, 0% 75%, 11% 0);
+		box-shadow: var(--pxvalues) var(--transparentx2);
+	}
+		.grid.imagecont img{
+			width: 100%;
+			height: calc(var(--vh)*100);
+			filter: saturate(250%);
+			-webkit-clip-path: polygon(76% 0, 100% 14%, 88% 100%, 13% 100%, 0% 75%, 11% 0);
+			clip-path: polygon(76% 0, 100% 14%, 88% 100%, 13% 100%, 0% 75%, 11% 0);
+		}
+	.shadow{
+		position: absolute;
+		width: 100%;
+		height: calc(var(--vh)*100);
+		z-index: -2;
+		content: "";
+		left: 5px;
+		top: 5px;
+		filter : blur(20px);
+		background: rgba(0, 0, 0, .3);
+		-webkit-clip-path: polygon(76% 0, 100% 14%, 88% 100%, 13% 100%, 0% 75%, 11% 0);
+		clip-path: polygon(76% 0, 100% 14%, 88% 100%, 13% 100%, 0% 75%, 11% 0);
+	}
+	.grid.abouthead p{
+		border-radius: 50px;
+		padding: calc(var(--vh)*6);
+		margin: calc(var(--vh)*6);
+		text-align: center;
+		color: white;
+		text-shadow: 2px 2px 2px black;
+	}
+		.highlight{
+			padding: var(--vh);
+			font-size: 2em;
+			line-height: 2em;
+			background-color: #00843C;
+			background-image: linear-gradient(to right, #15971c 0%, #00843C 100%);
+		}
+
+	.grid.feats{
+		min-height: 90vh;
+		grid-template-columns: var(--3fr);
+		grid-gap: var(--vh);
+	}
+		.grid.feat{
+			padding: calc(var(--vh)*5);
+		}
+
+	.grid.faqs{
+		min-height: 90vh;
+		grid-template-columns: var(--2fr);
+	}
+		.grid.faqstext{
+			padding: calc(var(--vh)*5);
+		}
+
+	.grid.faqs ol{
+		list-style-position: inside;
+	}
+		.grid.faqs ol p{
+			font-weight: normal;
+		}
+
 
 /*
 *
@@ -137,11 +219,11 @@ nav#mainnav{
 .grid.register{
 	place-items: center;
 	padding: calc(var(--vh)*10);
-	min-height: calc(var(--vh)*50);
+	min-height: calc(var(--vh)*60);
 }
 
 .register form {
-	min-width: calc(var(--vh)*45);
+	min-width: calc(var(--vh)*80);
 }
 
 .register form div label span[class*="error"] {
