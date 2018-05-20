@@ -2,7 +2,6 @@
 session_start();
 
 require_once "./lib/payresource.php";
-require_once "./lib/refnumgen.php";
 require_once "./lib/connect.php";
 
 use PayPal\Api\Payment;
@@ -18,6 +17,7 @@ if((bool)$_GET['success'] === false){
 
 $paymentId = $_GET['paymentId'];
 $payerId = $_GET['PayerID'];
+$refnumber = $_GET['refnum'];
 
 $payment = Payment::get($paymentId,$paypal);
 

@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 18, 2018 at 10:58 AM
--- Server version: 10.1.21-MariaDB
--- PHP Version: 7.1.2
+-- Generation Time: May 20, 2018 at 11:34 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -33,6 +35,44 @@ CREATE TABLE `cartproducts` (
   `cartQty` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `cartproducts`
+--
+
+INSERT INTO `cartproducts` (`id`, `cartID`, `cartItem`, `cartQty`) VALUES
+(19, 2, 2, 1),
+(20, 2, 4, 1),
+(21, 2, 5, 1),
+(22, 3, 2, 9),
+(23, 3, 4, 10),
+(24, 3, 1, 5),
+(25, 3, 18, 4),
+(26, 3, 26, 5),
+(27, 3, 31, 6),
+(42, 6, 32, 5),
+(43, 6, 33, 7),
+(44, 6, 34, 9),
+(45, 6, 35, 9),
+(46, 6, 44, 1),
+(47, 6, 45, 4),
+(48, 6, 46, 50),
+(49, 7, 32, 5),
+(50, 7, 34, 9),
+(51, 7, 44, 100),
+(52, 7, 45, 4),
+(53, 8, 2, 1),
+(54, 8, 4, 1),
+(55, 8, 5, 110),
+(56, 8, 6, 1),
+(57, 9, 2, 6),
+(58, 9, 4, 7),
+(59, 9, 5, 6),
+(60, 9, 7, 6),
+(61, 9, 3, 5),
+(62, 10, 4, 1),
+(63, 10, 5, 1),
+(64, 10, 6, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -42,8 +82,25 @@ CREATE TABLE `cartproducts` (
 CREATE TABLE `carts` (
   `id` int(11) NOT NULL,
   `cartUser` int(11) NOT NULL,
-  `cartRefNum` varchar(255) NOT NULL
+  `cartRefNum` varchar(255) NOT NULL,
+  `cartStatus` int(2) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `carts`
+--
+
+INSERT INTO `carts` (`id`, `cartUser`, `cartRefNum`, `cartStatus`) VALUES
+(1, 1, 'PUREccc8f540b0d651e15dd338e37873715e-xyz', 1),
+(2, 1, 'PURE5615fb365d700dd3b957f8b3df48c018-xyz', 1),
+(3, 1, 'PURE4cc8fcce2f21038fbd0c88d2790befcc-xyz', 1),
+(4, 1, 'PURE89ff2390b33333c0460630354d00062b-xyz', 1),
+(5, 1, 'PUREec0f270923e13bd63eed09d3b9791c5f-xyz', 1),
+(6, 1, 'PURE23b2e7b16cb804e339762fb682fe906b-xyz', 1),
+(7, 1, 'PUREd60ccb50224155d8093254fcc5511258-xyz', 1),
+(8, 1, 'PUREed7b9fb782dee391fb90ff03fc8ec682-xyz', 1),
+(9, 1, 'PURE62d19d5e25361b90875ee327304786dd-xyz', 1),
+(10, 1, 'PURE37b6030e5f6863757971cd96238014c0-xyz', 1);
 
 -- --------------------------------------------------------
 
@@ -73,6 +130,26 @@ INSERT INTO `categories` (`id`, `cName`, `parent`) VALUES
 (9, 'Bread', 0),
 (10, 'Alcohol', 1),
 (11, 'Hard Alcohol', 10);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderstatuses`
+--
+
+CREATE TABLE `orderstatuses` (
+  `id` int(2) NOT NULL,
+  `statusname` varchar(255) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data for table `orderstatuses`
+--
+
+INSERT INTO `orderstatuses` (`id`, `statusname`) VALUES
+(1, 'In Progress'),
+(2, 'Pending'),
+(3, 'Completed');
 
 -- --------------------------------------------------------
 
@@ -197,7 +274,8 @@ INSERT INTO `users` (`id`, `userFirstName`, `userLastName`, `userUid`, `userEmai
 (10, NULL, NULL, 'admin00', 'sdajasjdas@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, NULL, 2, 1),
 (11, NULL, NULL, 'test123456789', 'test123@mail.com.ph', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, NULL, 2, 1),
 (12, NULL, NULL, 'test120408', 'sdnakdsa@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, NULL, 2, 1),
-(13, '', '', 'hello123', 'hello123@gmail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, '', 2, 1);
+(13, '', '', 'hello123', 'hello123@gmail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, '', 2, 1),
+(14, NULL, NULL, 'admin123', '123456789@mail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', NULL, NULL, NULL, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -235,12 +313,19 @@ ALTER TABLE `cartproducts`
 --
 ALTER TABLE `carts`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `carts_fk0` (`cartUser`);
+  ADD KEY `carts_fk0` (`cartUser`),
+  ADD KEY `carts_fk1` (`cartStatus`);
 
 --
 -- Indexes for table `categories`
 --
 ALTER TABLE `categories`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `orderstatuses`
+--
+ALTER TABLE `orderstatuses`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -280,37 +365,50 @@ ALTER TABLE `user_status`
 -- AUTO_INCREMENT for table `cartproducts`
 --
 ALTER TABLE `cartproducts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+
 --
 -- AUTO_INCREMENT for table `carts`
 --
 ALTER TABLE `carts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `orderstatuses`
+--
+ALTER TABLE `orderstatuses`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `roleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- AUTO_INCREMENT for table `user_status`
 --
 ALTER TABLE `user_status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
 --
 -- Constraints for dumped tables
 --
@@ -326,7 +424,8 @@ ALTER TABLE `cartproducts`
 -- Constraints for table `carts`
 --
 ALTER TABLE `carts`
-  ADD CONSTRAINT `carts_fk0` FOREIGN KEY (`cartUser`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `carts_fk0` FOREIGN KEY (`cartUser`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `carts_fk1` FOREIGN KEY (`cartStatus`) REFERENCES `orderstatuses` (`id`);
 
 --
 -- Constraints for table `products`
@@ -340,6 +439,7 @@ ALTER TABLE `products`
 ALTER TABLE `users`
   ADD CONSTRAINT `users_fk0` FOREIGN KEY (`userRole`) REFERENCES `roles` (`roleID`),
   ADD CONSTRAINT `users_fk1` FOREIGN KEY (`userStatus`) REFERENCES `user_status` (`id`);
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

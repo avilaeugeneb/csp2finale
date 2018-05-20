@@ -6,7 +6,7 @@ function get_title(){
 require_once './partials/heading.php';
 require_once './lib/connect.php';
 
-$category_qry = "SELECT * FROM categories WHERE parent = 0";
+$category_qry = "SELECT * FROM categories WHERE parent = 0 ORDER BY cName";
 $result_cats = mysqli_query($conn,$category_qry);
 
 ?>

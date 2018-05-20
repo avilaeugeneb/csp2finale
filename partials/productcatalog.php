@@ -3,7 +3,7 @@
 
 		foreach ($result_cats as $category):
 			extract($category);
-			$qry = "SELECT p.id,p.pName,p.pDesc,p.pImage,p.pStocks,p.pPrice,c.cName FROM products p JOIN categories c ON(p.pCategoryID = c.id) WHERE p.pCategoryID=$id ORDER BY pCategoryID";
+			$qry = "SELECT p.id,p.pName,p.pDesc,p.pImage,p.pStocks,p.pPrice,c.cName FROM products p JOIN categories c ON(p.pCategoryID = c.id) WHERE p.pCategoryID=$id ORDER BY pName";
 			$result_qry = mysqli_query($conn,$qry);
 		?>
 

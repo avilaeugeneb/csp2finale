@@ -175,3 +175,19 @@ a{
 input{
 	width: auto;
 }
+/*
+ * Orders.php
+ */
+ .grid.ordercontainer{
+	padding: 5vh;
+ }
+
+	.grid.orders{
+		grid-template-columns: repeat(5,1fr);
+		border-bottom: 1px dotted black;
+	}
+
+	.grid.orders h5,
+	.grid.orders div{
+		text-align: center;
+	}

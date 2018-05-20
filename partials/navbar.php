@@ -1,3 +1,6 @@
+<?php 
+    require_once './lib/connect.php';
+?>   
     <nav class="navbar navbar-expand-lg navbar-dark elegant-color" id="secondnav">
 
     <!-- Navbar brand -->
@@ -40,12 +43,14 @@
         <li class="nav-item">
             <a class="nav-link" href="./index.php#mainnav">PureFood Home</a>
         </li>
-        <!-- <li class="nav-item">
-            <a class="nav-link" href="./about.php#mainnav">About</a>
-        </li> -->
         <li class="nav-item">
             <a class="nav-link" href="./catalog.php#mainnav">Products</a>
         </li>
+        <?php if (isset($_SESSION['user'])): ?>
+        <li class="nav-item">
+            <a class="nav-link" href="./orderhistory.php#mainnav">Order History</a>
+        </li>
+        <?php endif; ?>
         <li class="nav-item">
             <a class="nav-link" href="./cart.php#mainnav"><i class="fa fa-cart-plus" aria-hidden="true"></i>Cart
                 <span class="totalprice">
@@ -55,44 +60,52 @@
                     ?>
                 </span></a>
         </li>
-        <?php if (isset($_SESSION['user'])): ?>
-        <li class="nav-item">
-            <a class="nav-link" href="./orderhistory.php#mainnav">Order History</a>
-        </li>
-        <?php endif; ?>
     </ul>
     <!-- Links -->
 
     <form class="form-inline">
         <div class="md-form mt-0">
             <ul class="navbar-nav mr-auto">
-                <?php
-
-                    if (!isset($_SESSION['user'])) {
-                        echo '
-                        <li class="nav-item">
-                        <a class="nav-link" href="./register.php#mainnav">Register</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="./login.php#mainnav">Log-in</a>
-                        </li>
-                        ';
-                    } else {
-                        echo '
-                        <li class="nav-item">
-                        <a class="nav-link" href="./profile.php#mainnav">Welcome, ' .$_SESSION['user']. '</a>
-                        </li>
-                        <li class="nav-item">
-                        <a class="nav-link" href="./logout.php#mainnav">Log-out</a>
-                        </li>
-                        ';
-                    }
-                ?>
-
-
+            
+            <?php  if (!isset($_SESSION['user'])):?>
+                
+                <li class="nav-item">
+                <a class="nav-link" href="./register.php#mainnav">Register</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="./login.php#mainnav">Log-in</a>
+                </li>
+                    
+            <?php else:?>
+                    
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome, <?=$_SESSION['user'];?></a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="./profile.php#mainnav">Profile</a>
+                        <?php 
+                            $usertocheck = $_SESSION['user'];
+                            $role_qry = "SELECT r.roleName 
+                            FROM users u
+                            JOIN roles r
+                            ON(r.roleID=u.userRole)
+                            WHERE u.userUid = '$usertocheck'";
+                            $result_roleqry = mysqli_query($conn,$role_qry);
+                            $roleinfo = mysqli_fetch_assoc($result_roleqry);
+                        ?>
+                        <?php if($roleinfo['roleName']=='admin'):?>
+                            <a class="dropdown-item" href="./admin/index.php">Admin Panel</a>
+                        <?php endif;?>
+                        <a class="dropdown-item" href="./logout.php#mainnav">Log-out</a>
+                    </div>
+                </li>
+                    
+            <?php endif;?>
+            
             </ul>
 
         </div>
     </form>
 </nav>
     <!--/.Navbar-->
+
