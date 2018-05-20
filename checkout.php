@@ -137,7 +137,7 @@ function tofloat($num) {
 								<form action="./lib/payment.php" method="POST" class="grid">
 									<input type="text" class="d-none" value="Grocery Items from PureFood" name="product">
 									<input type="number" class="d-none" value="<?=tofloat($_SESSION['total_amount']) ?>" name="price">
-									<button class="btn" type="submit" name="submit"><i class="fa fa-check-square-o" aria-hidden="true"></i>Pay with Paypal</button>
+									<button class="btn" type="submit" name="submit"><i class="fa fa-check-square-o" aria-hidden="true"></i>Pay with <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/PP_logo_h_100x26.png" alt="PayPal Logo"></button>
 								</form>
 								<div class="grid checktotal2">
 									<h4 class="text-center">Total Amount : </h4>

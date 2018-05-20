@@ -308,6 +308,12 @@ $(document).ready(function(){
 		 $(orderclass).toggleClass('d-none');
 	 });
 
+	 /*
+ 	 *  WOW
+ 	 */
+	 
+	new WOW().init();
+	
 });
 
 // Checks if string is empty, return true if empty

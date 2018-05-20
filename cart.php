@@ -43,7 +43,7 @@ require_once './partials/heading.php';
 
 				<?php while($products = mysqli_fetch_assoc($result_products)):?>
 
-					<div class="grid cartitems" data-productid="<?=$products['id'] ?>">
+					<div class="wow flipInX grid cartitems" data-productid="<?=$products['id'] ?>">
 						<p><?= $products['pName']?></p>
 						<div class="editqty">
 							<input class="editinputqty" type="number" name="qtyproduct" value="<?= $_SESSION['cart'][$products['id']] ?>">	

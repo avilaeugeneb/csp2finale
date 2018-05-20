@@ -13,7 +13,7 @@
 	<!-- Start your project here-->
 	<div class="grid aboutpf">
 		
-		<div class="grid abouthead">
+		<div class="grid abouthead wow fadeIn">
 			<div class="grid imagecont">
 				<img src="./assets/img/grocerybg.jpg" class="img-fluid z-depth-1" alt="Responsive image">
 			</div>
@@ -25,7 +25,7 @@
 				</span></p>
 		</div>
 		<div class="grid feats">
-			<div class="grid feat">
+			<div class="grid feat wow fadeIn">
 				<div class="feat-img">
 					<img src="./assets/img/vformoney.png" alt="" class="img-fluid">
 				</div>
@@ -36,7 +36,7 @@
 					</p>
 				</div>
 			</div>
-			<div class="grid feat">
+			<div class="grid feat wow fadeIn">
 				<div class="feat-img">
 					<img src="./assets/img/storage.jpg" alt="" class="img-fluid">
 				</div>
@@ -50,7 +50,7 @@
 					</p>
 				</div>
 			</div>
-			<div class="grid feat">
+			<div class="grid feat wow fadeIn">
 				<div class="feat-img">
 					<img src="./assets/img/gitems.png" alt="" class="img-fluid">
 				</div>
@@ -62,7 +62,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="grid faqs">
+		<div class="grid faqs wow fadeIn">
 			<div class="grid nice-border faqstext">
 				<h6>FAQs</h6>
 				<ol>

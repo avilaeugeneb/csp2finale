@@ -17,10 +17,10 @@
 	--fcolor: red;
 	--transparent: rgba(0,0,0,0.2);
 	--transparentx2: rgba(0,0,0,0.6);
-	--2fr: repeat(2,1fr);
-	--3fr: repeat(3,1fr);
-	--4fr: repeat(4,1fr);
-	--5fr: repeat(5,1fr);
+	--fr2: repeat(2,1fr);
+	--fr3: repeat(3,1fr);
+	--fr4: repeat(4,1fr);
+	--fr5: repeat(5,1fr);
 	--circle: 50%;
 	--pxvalues: 2px 2px 3px 2px;
 }
@@ -38,6 +38,10 @@ body{
   min-height: 100vh;
   display: grid;
   grid-template-rows: 1fr auto;
+}
+
+.wow{
+	visibility: hidden;
 }
 
 h1,h2,h3,h4,h5,h6,p.h4{
@@ -190,7 +194,7 @@ nav#mainnav{
 
 	.grid.feats{
 		min-height: 90vh;
-		grid-template-columns: var(--3fr);
+		grid-template-columns: var(--fr3);
 		grid-gap: var(--vh);
 	}
 		.grid.feat{
@@ -214,7 +218,7 @@ nav#mainnav{
 
 	.grid.faqs{
 		min-height: 90vh;
-		grid-template-columns: var(--2fr);
+		grid-template-columns: var(--fr2);
 	}
 		.grid.faqstext{
 			padding: calc(var(--vh)*5);
@@ -373,7 +377,7 @@ span.totalprice{
 }
 
 .grid.cartbuttons{
-	grid-template-columns: var(--3fr);
+	grid-template-columns: var(--fr3);
 	grid-gap: var(--vh);
 }
 	.grid.cartbuttons button{
@@ -429,7 +433,7 @@ span.totalprice{
 
 	.grid.cartheader,
 	.grid.cartitems{
-		grid-template-columns: repeat(4,1fr);
+		grid-template-columns: var(--fr4);
 		grid-template-rows: minmax(20px, 40px);
 	}
 	.grid.cartitems p{
@@ -483,14 +487,14 @@ span.totalprice{
 *
 */
 .grid.checkcont{
-	grid-template-columns: var(--2fr);
+	grid-template-columns: var(--fr2);
 }
 	.grid.checkout{
 		padding: calc(var(--vh)*2);
 		grid-template-rows: 1fr 1fr 10fr;
 	}
 		.grid.checkheader{
-			grid-template-columns: var(--2fr);
+			grid-template-columns: var(--fr2);
 		}
 
 		.grid.nopad.cicont{
@@ -498,13 +502,13 @@ span.totalprice{
 		}
 
 		.grid.checkitems{
-			grid-template-columns: var(--2fr);
+			grid-template-columns: var(--fr2);
 		}
 			.grid.checkitems:nth-child(odd){
 				background: var(--transparent);
 			}
 		.grid.checktotal2{
-			grid-template-columns: var(--2fr);
+			grid-template-columns: var(--fr2);
 		}
 
 	.grid.delivery{
@@ -533,7 +537,7 @@ span.totalprice{
 	padding: 5vh;
 }
 .grid.history{
-	grid-template-columns: var(--3fr);
+	grid-template-columns: var(--fr3);
 	border-bottom: 1px dotted var(--theme-color);
 }
 
@@ -543,7 +547,7 @@ span.totalprice{
 }
 
 .grid.orderitems{
-	grid-template-columns: var(--2fr);
+	grid-template-columns: var(--fr2);
 	text-align: center;
 }
 .grid.orderitems:nth-child(even){
@@ -601,4 +605,14 @@ footer.page-footer{
 	grid-row-start: 2;
 	grid-row-end: 3;
 }
+footer.page-footer h4,
+footer.page-footer h5,
+footer.page-footer p,
+footer.page-footer h6{
+	font-size: 0.8em;
+}
 
+.grid.ordersuccess{
+	place-items: center;
+	padding-top: 10vh;
+}

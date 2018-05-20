@@ -33,7 +33,7 @@
         <!-- Start your project here-->
         <?php while($history = mysqli_fetch_assoc($result_availcartqry)): ?>
             <?php extract($history);?>
-            <div class="grid history" data-orderid="<?=$id?>">
+            <div class="wow flipInX grid history" data-orderid="<?=$id?>">
                 <div class="text-center">
                     <?= $cartRefNum?> 
                 </div>
@@ -60,7 +60,7 @@
                 $result_cartqry = mysqli_query($conn,$cartqry);
                 $rowscat = mysqli_num_rows($result_cartqry);
             ?>
-            <div class="orderhistory orderhistory<?=$id?> d-none">
+            <div class="animated zoomIn orderhistory orderhistory<?=$id?> d-none">
                 <div class="grid orderitems">
                     <div><h6>Item Name</h6></div>
                     <div><h6>Quantity</h6></div>

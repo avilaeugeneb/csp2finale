@@ -20,7 +20,7 @@ $userinfo = mysqli_fetch_assoc($result_user);
 	?>
 
 	<!-- Start your project here-->
-	<div class="grid profile">
+	<div class="grid profile wow fadeIn">
 
 		<p class="h4 text-center mb-4 p-head" data-userid ="<?= $userinfo['id']?>"><?= $userinfo['userUid']?>'s Profile</p>
 		<span class="profilespan"></span>

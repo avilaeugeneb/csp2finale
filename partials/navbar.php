@@ -53,7 +53,7 @@
         <?php endif; ?>
         <li class="nav-item">
             <a class="nav-link" href="./cart.php#mainnav"><i class="fa fa-cart-plus" aria-hidden="true"></i>Cart
-                <span class="totalprice">
+                <span class="totalprice wow fadeIn">
                     <?php 
                         if(isset($_SESSION['total_amount']))
                             echo "(₱".$_SESSION['total_amount'].")";

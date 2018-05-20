@@ -3,6 +3,7 @@ session_start();
 
 require_once "./lib/payresource.php";
 require_once "./lib/connect.php";
+require_once "./lib/email_sending.php";
 
 use PayPal\Api\Payment;
 use PayPal\Api\PaymentExecution;
@@ -55,10 +56,24 @@ try{
             $result_cartitems = mysqli_query($conn,$cartitems_qry);
         }
 
+
+        // Query for sending email 
+        $user_infoqry = "SELECT CONCAT(userFirstName,' ',userLastName) as name,
+        userEmail FROM users WHERE userUid='$cartuser'";
+        $result_userinfo = mysqli_query($conn,$user_infoqry);
+        $userinfo = mysqli_fetch_assoc($result_userinfo);
+
+        $username = $userinfo['name'];
+        $usermail = $userinfo['userEmail'];
+        $mail_subject = "Pure Food Order#".$refnumber;
+        $mail_body = "<p>Thanks for placing an order. Your order is being processed with referrence number ".$refnumber."</p><p>Expect the delivery within 60 to 90 mins</p>";
+
+        sendMail($usermail,$username,$mail_subject,$mail_body);
+
         unset($_SESSION['cart']);
         unset($_SESSION['subtotal']);
         unset($_SESSION['total_amount']);
-        header('Location: ./orderhistory.php#mainnav?paymentsuccess=true');    
+        header('Location: ./ordersuccess.php?refid='.$refnumber);    
     }
 } catch(Exception $e){
     $data = json_decode($e->getData());

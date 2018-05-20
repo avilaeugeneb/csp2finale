@@ -5,7 +5,7 @@
     <div class="mr-auto">
         <ul class="navbar-nav">
             <li class="nav-item partner-links">
-                <a class="nav-link partner-links" href="./items.php">Products</a>
+                <a class="nav-link partner-links" href="./index.php">Products</a>
             </li>
             <li class="nav-item partner-links">
                 <a class="nav-link" href="./orders.php">Orders</a>

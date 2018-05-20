@@ -12,7 +12,7 @@
 			<div class="grid catalog">
 				<?php while($products = mysqli_fetch_assoc($result_qry)):?>
 
-					<div class="grid item nice-border" data-pid="<?=$products['id']?>">
+					<div class="wow fadeIn grid item nice-border" data-pid="<?=$products['id']?>">
 						<div class="text-center itemhead">
 							<h6><?= $products['pName'] ?></h6>
 							<p><?= $products['cName'] ?></p>

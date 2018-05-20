@@ -23,7 +23,7 @@
 			<div class="col-md-4">
 				<h4 class="text-uppercase">PURE Group of Companies</h4>
 				<h6 class="text-uppercase">Pure.Food</h6>
-				<h6 class="text-uppercase">Pure.Trek</h6>
+				<h6 class="text-uppercase">Pure.Scents</h6>
 				<h6 class="text-uppercase">Pure.Tools</h6>
 				<h6 class="text-uppercase">Pure.Style</h6>
 				<h6 class="text-uppercase">Pure.Tech</h6>
@@ -32,11 +32,12 @@
 
 			<!--Third column-->
 			<div class="col-md-4">
-				<h4 class="text-uppercase">TERMS OF USE</h4>
-				<h4 class="text-uppercase">PRIVACY POLICY</h4>
-				<h4 class="text-uppercase">SITEMAP</h4>
-				<h4 class="text-uppercase">COPYRIGHT POLICY</h4>
-				<h4 class="text-uppercase">CREDITS</h4>
+				<h4 class="text-uppercase">Terms of Use</h4>
+				<h4 class="text-uppercase">Disclaimer</h4>
+				<h4 class="text-uppercase">We Accept</h4>
+				<div>
+				<img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png" alt="Credit Card Badges">
+				</div>
 			</div>
 			<!--/.Third column-->
 		</div>
