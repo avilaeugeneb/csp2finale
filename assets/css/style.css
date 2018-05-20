@@ -7,6 +7,7 @@
 /* #00843C - darkgreen */
 /* #2e2e2e - gray */
 /* rgba(76, 175, 80, 1) - lightgreen */
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
 :root{
 	--theme-color: #00843C;
@@ -30,6 +31,7 @@
 	letter-spacing: 0.1em;
 	font-size: 0.9rem;
 	box-sizing: border-box;
+	font-family: 'Varela Round', sans-serif;
 }
 
 body{
@@ -79,7 +81,6 @@ a{
 * Universal Declarations
 *
 */
-
 /* Displaying a Container Grid */
 .grid{
 	display: grid;
@@ -119,11 +120,13 @@ nav#mainnav{
 	top: 0;
 	z-index: 10;
 	background: var(--theme-color);
+	font-size: 1.5em;
+	font-weight: bolder;
 }
 
 /*
 *
-* About Page about.php
+* Index /about index.php
 *
 */
 
@@ -165,7 +168,8 @@ nav#mainnav{
 		left: 5px;
 		top: 5px;
 		filter : blur(20px);
-		background: rgba(0, 0, 0, .3);
+		background: var(--theme-color);
+		opacity: 0.4;
 		-webkit-clip-path: polygon(76% 0, 100% 14%, 88% 100%, 13% 100%, 0% 75%, 11% 0);
 		clip-path: polygon(76% 0, 100% 14%, 88% 100%, 13% 100%, 0% 75%, 11% 0);
 	}
@@ -181,8 +185,7 @@ nav#mainnav{
 			padding: var(--vh);
 			font-size: 2em;
 			line-height: 2em;
-			background-color: #00843C;
-			background-image: linear-gradient(to right, #15971c 0%, #00843C 100%);
+			background-color: var(--theme-color);
 		}
 
 	.grid.feats{
@@ -192,7 +195,22 @@ nav#mainnav{
 	}
 		.grid.feat{
 			padding: calc(var(--vh)*5);
+			grid-gap: calc(var(--vh)*2);
 		}
+			.feat-img{
+				height: 100%;
+				display: grid;
+				place-items: center;
+			}
+				.feat-img img {
+					border-radius: 10px;
+				}
+			.feat-desc{
+				text-align: center;
+			}
+				.feat-desc h4{
+					color: var(--theme-color);
+				}
 
 	.grid.faqs{
 		min-height: 90vh;
@@ -202,13 +220,54 @@ nav#mainnav{
 			padding: calc(var(--vh)*5);
 		}
 
+		.grid.faqstext h6,
+		.grid.faqstext li{
+			color: var(--theme-color);
+			font-weight: bolder;
+		}
+		
 	.grid.faqs ol{
 		list-style-position: inside;
 	}
 		.grid.faqs ol p{
 			font-weight: normal;
 		}
+	.faq-img{
+		height: 100%;
+		display: grid;
+		place-items: center;
+		position: relative;
+		z-index: -1;
+	}
+.shopnow {
+	position: fixed;
+	bottom: 60px;
+	right: 60px;
+	background: white;
+	color: var(--theme-color);
+	border-radius: 50px;
+	padding: 1vh;
+	outline: var(--theme-color);
+	z-index: 50;
+	animation: pulse 1s linear infinite;
+	overflow: initial;
+}
 
+	.shopnow a{
+		font-size: 4vh;
+		font-weight: bolder;
+		text-transform: capitalize;
+	}
+
+	.shopnow a i{
+		font-size: 4vh;
+		animation: bounce 1s linear infinite;
+	}
+	.shopnow:hover a,
+	.shopnow:hover i {
+		font-size: 3rem;
+		color: red;
+	}
 
 /*
 *
@@ -263,6 +322,31 @@ nav#mainnav{
 	padding: calc(var(--vh)*5);
 	grid-template-columns: 2fr 10fr;
 }
+	ul.tabcatalog{
+		color: var(--theme-color);
+		padding-top: 8vh;
+	}	
+		ul.tabcatalog li {
+			border: 1px solid var(--theme-color);
+			margin: 1vh;
+			border-radius: 45px;
+			text-align: center;
+		}
+		ul.tabcatalog li:hover,
+		ul.tabcatalog li:active{
+			border: 1px dotted var(--theme-color);
+			background: var(--theme-color);
+			
+		}
+		ul.tabcatalog li a{
+			font-size: 1.2em;
+			font-weight: bolder;
+			letter-spacing: 0.2em;
+		}
+		ul.tabcatalog li a:hover,
+		ul.tabcatalog li a:active{
+			color: white;
+		}
 
 	.grid.catalog{
 		grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
@@ -403,15 +487,20 @@ span.totalprice{
 }
 	.grid.checkout{
 		padding: calc(var(--vh)*2);
+		grid-template-rows: 1fr 1fr 10fr;
 	}
 		.grid.checkheader{
 			grid-template-columns: var(--2fr);
 		}
 
+		.grid.nopad.cicont{
+			min-height: 40vh;
+		}
+
 		.grid.checkitems{
 			grid-template-columns: var(--2fr);
 		}
-			.grid.checkitems:nth-child(even){
+			.grid.checkitems:nth-child(odd){
 				background: var(--transparent);
 			}
 		.grid.checktotal2{
@@ -421,6 +510,7 @@ span.totalprice{
 	.grid.delivery{
 		padding: calc(var(--vh)*2);
 		position: relative;
+		align-self: center;
 	}
 
 .form-control {
@@ -433,6 +523,35 @@ span.totalprice{
 .md-form input[type=tel]{
 	border-bottom: 1px dotted var(--theme-color);
 }
+
+/*
+*
+* OrderHistory 
+*
+*/
+.historycontainer{
+	padding: 5vh;
+}
+.grid.history{
+	grid-template-columns: var(--3fr);
+	border-bottom: 1px dotted var(--theme-color);
+}
+
+.orderhistory {
+	max-width: 50vw;
+	margin: 2vh auto;
+}
+
+.grid.orderitems{
+	grid-template-columns: var(--2fr);
+	text-align: center;
+}
+.grid.orderitems:nth-child(even){
+	background: var(--theme-color);
+	color: white;
+	font-weight: bolder;
+}
+
 /*
 *
 * Profile

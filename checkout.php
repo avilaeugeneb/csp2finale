@@ -62,25 +62,26 @@ function tofloat($num) {
 		<h4>Product</h4>
 		<h4>Quantity</h4>
 	</div>
+		<div class="cicont">
+			<?php while($products = mysqli_fetch_assoc($result_products)):?>
 
-<?php while($products = mysqli_fetch_assoc($result_products)):?>
+					<div class="grid checkitems" data-productid="<?=$products['id'] ?>">
+						<p><?= $products['pName']?></p>
+						<div class="editqty">
+							<input class="editinputqty d-none" type="number" name="qtyproduct" value="<?=$_SESSION['cart'][$products['id']] ?>">
+							<p><?='<strong>x </strong>'.$_SESSION['cart'][$products['id']] ?> 
+								<?php if($_SESSION['cart'][$products['id']]==1):?>
+									piece
+								<?php endif; ?>
+								<?php if($_SESSION['cart'][$products['id']]>1):?>
+									pieces
+								<?php endif; ?>
+							</p>	
+						</div>
+					</div>
 
-<div class="grid checkitems" data-productid="<?=$products['id'] ?>">
-	<p><?= $products['pName']?></p>
-<div class="editqty">
-	<input class="editinputqty d-none" type="number" name="qtyproduct" value="<?=$_SESSION['cart'][$products['id']] ?>">
-	<p><?='<strong>x </strong>'.$_SESSION['cart'][$products['id']] ?> 
-<?php if($_SESSION['cart'][$products['id']]==1):?>
-			piece
-		<?php endif; ?>
-		<?php if($_SESSION['cart'][$products['id']]>1):?>
-			pieces
-		<?php endif; ?>
-	</p>	
-	</div>
-</div>
-
-<?php endwhile;?>
+			<?php endwhile;?>
+		</div> <!-- gridcheckitemscontainerend -->
 				
 			</div> <!-- endgridcheckout -->
 

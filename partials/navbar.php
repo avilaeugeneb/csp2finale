@@ -38,7 +38,7 @@
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <a class="nav-link" href="./home.php#mainnav">PureFood Home</a>
+            <a class="nav-link" href="./index.php#mainnav">PureFood Home</a>
         </li>
         <!-- <li class="nav-item">
             <a class="nav-link" href="./about.php#mainnav">About</a>
@@ -55,6 +55,11 @@
                     ?>
                 </span></a>
         </li>
+        <?php if (isset($_SESSION['user'])): ?>
+        <li class="nav-item">
+            <a class="nav-link" href="./orderhistory.php#mainnav">Order History</a>
+        </li>
+        <?php endif; ?>
     </ul>
     <!-- Links -->
 

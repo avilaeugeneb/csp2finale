@@ -1,5 +1,6 @@
 <?php
-define('SITE_URL','http://purefood.frifster.ml');
+// define('SITE_URL','http://purefood.frifster.ml');
+define('SITE_URL','http://localhost/csp2');
 $parent = dirname(__FILE__,2);
 require $parent.'/PayPal-PHP-SDK/autoload.php';
 

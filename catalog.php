@@ -18,7 +18,7 @@ $result_cats = mysqli_query($conn,$category_qry);
 	<div class="grid productscont">
 		
 		<!-- Nav tabs -->
-		<ul class="nav md-pills flex-column" role="tablist">
+		<ul class="nav md-pills flex-column tabcatalog" role="tablist">
 		    <?php while($category = mysqli_fetch_assoc($result_cats)): ?>
 		    	<li class="nav-item">
 	        	<a class="nav-link" data-toggle="tab" href="#panel<?=$category['id']?>" role="tab"><?=$category['cName']?></a>

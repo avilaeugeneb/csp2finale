@@ -296,7 +296,17 @@ $(document).ready(function(){
  			$('span.totalprice').html(data);
  			$('.totalpricebot').html(data);
  		});
- 	});
+	 });
+	 
+	 /*
+ 	 *  Order History
+ 	 */
+	 $('.historyitems.btn').on('click',function(){
+		 var orderid = $(this).parent().parent().data('orderid');
+		 var orderclass = '.orderhistory'+orderid;
+
+		 $(orderclass).toggleClass('d-none');
+	 });
 
 });
 
