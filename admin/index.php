@@ -109,11 +109,11 @@ $result_productsqry = mysqli_query($conn,$products_qry);
 								<!-- pCategory Cell -->
 								<div class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="6">
 									<div class="cellItem<?= $product['id'] ?>col6 selectcat">
-										<select name="pCategory" id="addpCategory">
+										<select name="pCategory">
 											<option value="<?= $product['id'] ?>"><?= $product['cName'] ?></option>
 
 											<?php 
-											$categories_qry = "SELECT id,cName FROM categories WHERE (parent = 0) AND (id !=".$product['id']." )";
+											$categories_qry = "SELECT id,cName FROM categories WHERE parent = 0";
 											$result_catqry = mysqli_query($conn,$categories_qry);
 
 											while($category = mysqli_fetch_assoc($result_catqry)):?>
@@ -174,8 +174,12 @@ $result_productsqry = mysqli_query($conn,$products_qry);
 						<label for="pCategory"><b>Category :</b></label>
 						<select name="pCategory" id="addpCategory">
 							<option></option>
-							<?php while($category = mysqli_fetch_assoc($result_catqry)) :?>
-								<option value="<?= $category['id'] ?>"><?= $category['cName']?></option>
+
+							<?php
+								$categories_qry = "SELECT id,cName FROM categories WHERE parent = 0";
+								$result_catqry = mysqli_query($conn,$categories_qry);
+								while($category = mysqli_fetch_assoc($result_catqry)):?>
+								<option value="<?=$category['id']; ?>"><?= $category['cName'];?></option>
 							<?php endwhile; ?>
 						</select>
 					</div>

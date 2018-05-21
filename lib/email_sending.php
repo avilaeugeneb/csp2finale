@@ -13,7 +13,7 @@ $mail_subject,
 $mail_body){
 	//Sender
 
-	$email_sender ='frifster2014@gmail.com';
+	$email_sender ='avila.eugeneb@gmail.com';
 	$email_password ='101789Eug';
 	$from_email = "purefood@puregroup.com";
 	$from_name =  "Pure Food";
@@ -56,12 +56,10 @@ $mail_body){
 		$mail->Subject = $mail_subject;
 		$mail->Body = $mail_body;
 		
-		//Sending Email
-		// if($mail->send())
-		// 	echo "Email Sent";
+		$mail->send();
 
 
 	}catch(Exception $error){
-		// echo 'Message couldn\'t be sent. Mailer Error:' . $mail->ErrorInfo;
+		echo 'Message couldn\'t be sent. Mailer Error:' . $mail->ErrorInfo;
 	}
 }

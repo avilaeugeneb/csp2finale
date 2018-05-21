@@ -313,6 +313,11 @@ $(document).ready(function(){
  	 */
 	 
 	new WOW().init();
+
+	$('.colorpicker').on('change',function(){
+		var color = $(this).val();
+		$(':root').css('--theme-color',color);
+	});
 	
 });
 

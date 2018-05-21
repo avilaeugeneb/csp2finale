@@ -91,7 +91,7 @@ $cName = $category['cName'];
 	</div>
 	<!-- pImage Cell -->
 	<div class="grid pCell" data-productid="<?= $newitemid ?>">
-		<img src="../assets/img/<?= $pImage; ?>" class="img-fluid">
+		<img src="../../assets/img/<?= $pImage; ?>" class="img-fluid">
 	</div>
 	<!-- pCategory Cell -->
 	<div class="grid pCell" data-productid="<?= $newitemid ?>" data-col="6">
