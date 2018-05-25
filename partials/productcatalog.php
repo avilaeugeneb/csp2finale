@@ -15,7 +15,6 @@
 					<div class="wow fadeIn grid item nice-border" data-pid="<?=$products['id']?>">
 						<div class="text-center itemhead">
 							<h6><?= $products['pName'] ?></h6>
-							<p><?= $products['cName'] ?></p>
 						</div>
 						<div>
 							<img src="assets/img/<?= $products['pImage'] ?>" alt="Placeholder Image" class="img-fluid">

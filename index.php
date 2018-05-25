@@ -104,6 +104,10 @@
 
 	<!-- /Project ends here-->
 
+	<div style="position: fixed; bottom: 20px; left: 30px;">
+		<input type="color" name="colorpicker" class="colorpicker">
+	</div>
+
 </main>
 
 <?php 
