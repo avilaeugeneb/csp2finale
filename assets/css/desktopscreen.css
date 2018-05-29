@@ -1,0 +1,154 @@
+/*
+*
+* Navbar navbar.php
+*
+*/
+nav#secondnav{
+	max-height: calc(var(--vh)*3);
+}
+nav#mainnav{
+	max-height: calc(var(--vh)*10);
+}
+
+.navbar_notxs{
+	display: grid;
+	grid-template-columns: 10fr 4fr;
+	align-items: center;
+	height: 5vh;
+	padding: 0;
+	margin: 0;
+}
+
+.navbar_notxs ul:nth-child(1){
+	display: grid;
+	grid-template-columns: repeat(5,1fr);
+	place-items: center;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	height: 5vh;
+}
+
+.navbar_notxs ul:nth-child(1) li{
+	text-align: center;
+	font-size: 20px;
+}
+
+.navbar_notxs ul:nth-child(2){
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	text-align: center;
+}
+
+.navbar_xs{
+	display: none;
+}
+
+.grid.reg{
+	grid-template-columns: 1fr 1fr;
+}
+
+
+
+/*
+*
+* Index /about index.php
+*
+*/
+.grid.abouthead{
+	display: grid;
+	width: 100vw;
+}
+.grid.imagecont img{
+	width: 100vw;
+	margin: 0 auto;
+}
+.shadow{
+	width: 100vw;
+	margin: 0 auto;
+}
+.grid.feats{
+	grid-template-columns: var(--fr3);
+}
+.grid.faqs{
+	grid-template-columns: var(--fr2);
+}
+
+.grid.faqstext h6,
+.grid.faqstext li{
+	font-size: inherit;
+}
+
+/*
+*
+* Catalog
+*
+*/
+
+.grid.productscont{
+	padding: calc(var(--vh)*2);
+	grid-template-columns: 2fr 10fr;
+	position: relative;
+}
+
+ul.tabcatalog{
+	margin-top: 8vh;
+	display: block;
+	width: auto;
+	position: fixed;
+	top: 2vh;
+	left: 2vh;
+	background: white;
+}
+
+ul.tabcatalog li a{
+	font-size: 1.2em;
+}
+
+span.totalprice{
+	font-weight: bold;
+	font-size: 0.8em;
+	position: absolute;
+	top: 12%;
+	left: 100%;
+}
+/*
+*
+* Cart
+*
+*/
+
+.grid.cartheader,
+.grid.cartitems{
+	grid-template-columns: var(--fr4);
+	grid-template-rows: minmax(20px, 40px);
+}
+
+.grid.totalcont{
+	grid-template-columns: 5fr 2fr;
+	grid-gap: 1vh;
+}
+
+/*
+*
+* Register
+*
+*/
+
+.grid.register{
+	place-items: center;
+	padding: calc(var(--vh)*10);
+	min-height: calc(var(--vh)*60);
+}
+
+.register form {
+	min-width: calc(var(--vw)*80);
+}
+
+.register form div label span[class*="error"] {
+	color: var(--fcolor);
+}
+
+.register form div label span[class*="success"]{
+	color: var(--scolor);
+}

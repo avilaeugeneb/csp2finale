@@ -87,8 +87,8 @@
 				</ol>
 			</div>
 			<div class="faq-img">
-					<img src="./assets/img/faq.png" alt="" class="img-fluid">
-				</div>
+				<img src="./assets/img/faq.png" alt="" class="img-fluid">
+			</div>
 			<div class="grid"></div>
 		</div>
 
@@ -103,11 +103,6 @@
 
 
 	<!-- /Project ends here-->
-
-	<div style="position: fixed; bottom: 20px; left: 30px;">
-		<input type="color" name="colorpicker" class="colorpicker">
-	</div>
-
 </main>
 
 <?php 

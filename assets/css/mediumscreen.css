@@ -1,0 +1,100 @@
+/*
+*
+* Navbar navbar.php
+*
+*/
+nav#secondnav{
+	max-height: calc(var(--vh)*3);
+}
+.navbar_notxs{
+	display: none;
+}
+
+.navbar_xs{
+	display: block;
+}
+
+
+/*
+*
+* Index /about index.php
+*
+*/
+.grid.abouthead{
+	display: grid;
+}
+
+.grid.feats{
+	grid-template-columns: var(--fr3);
+}
+
+.grid.faqs{
+	grid-template-columns: var(--fr2);
+}
+
+.grid.faqstext h6,
+.grid.faqstext li{
+	font-size: inherit;
+}
+
+/*
+*
+* Catalog
+*
+*/
+
+.grid.productscont{
+	padding: calc(var(--vh)*5);
+	grid-template-columns: 2fr 10fr;
+}
+ul.tabcatalog{
+	padding-top: 8vh;
+	display: block;
+	width: auto;
+}
+ul.tabcatalog li a{
+	font-size: 1.2em;
+}
+span.totalprice{
+	font-weight: bold;
+	font-size: 1.0em;
+}
+
+/*
+*
+* Cart
+*
+*/
+.grid.cartheader,
+.grid.cartitems{
+	grid-template-columns: var(--fr4);
+	grid-template-rows: minmax(20px, 40px);
+}
+.grid.totalcont{
+	grid-template-columns: 5fr 2fr;
+	grid-gap: 1vh;
+}
+
+/*
+*
+* Register
+*
+*/
+
+.grid.register{
+	place-items: center;
+	padding: calc(var(--vh)*10);
+	min-height: calc(var(--vh)*60);
+}
+
+.register form {
+	min-width: calc(var(--vw)*80);
+}
+
+.register form div label span[class*="error"] {
+	color: var(--fcolor);
+}
+
+.register form div label span[class*="success"]{
+	color: var(--scolor);
+}

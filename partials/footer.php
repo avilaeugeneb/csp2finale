@@ -36,7 +36,7 @@
 				<h4 class="text-uppercase">Disclaimer</h4>
 				<h4 class="text-uppercase">We Accept</h4>
 				<div>
-				<img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png" alt="Credit Card Badges">
+				<img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/cc-badges-ppmcvdam.png" alt="Credit Card Badges" class="img-fluid">
 				</div>
 			</div>
 			<!--/.Third column-->
@@ -52,6 +52,16 @@
 
 </footer>
 <!--/.Footer-->
+
+<div style="position: fixed; bottom: 20px; left: 30px;">
+		<input type="color" name="colorpicker" class="colorpicker" value=
+		<?php if(isset($_SESSION['color'])): ?>
+			<?= $_SESSION['color'] ?>
+		<?php else: ?>
+			'#00843C'
+		<?php endif;?>
+		>
+</div>
 
 <!-- SCRIPTS -->
 <!-- JQuery -->

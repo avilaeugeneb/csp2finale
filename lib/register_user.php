@@ -3,8 +3,8 @@
 require_once 'connect.php';
 require_once 'email_sending.php';
 
-$username = $_POST['username'];
-$usermail =$_POST['usermail'];
+$username  = mysqli_escape_string($conn,htmlspecialchars($_POST['username']));
+$usermail  = mysqli_escape_string($conn,htmlspecialchars($_POST['usermail']));
 $password = sha1($_POST['userpassword']);
 
 $register_qry = "INSERT INTO users(userUid,userEmail,userPassword) VALUES('$username','$usermail','$password')";

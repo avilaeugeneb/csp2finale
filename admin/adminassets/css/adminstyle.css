@@ -65,11 +65,41 @@ span.addsuccess{
 	font-size: 1.2rem;
 	letter-spacing: 0.1em;
 	background: rgba(0,0,0,0.1);
+	z-index: 900;
+}
+
+.grid.productlists{
+	border-collapse: collapse;
+}
+.grid.productlists thead,
+.grid.productlists tbody{
+	width: 100%;
+}
+table.dataTable thead {
+	background: black;
+	color: white;
+}
+
+table.dataTable input {
+	width: 100%;
+}
+
+table.dataTable thead th{
+	border: 0;
+	padding: 0;
+}
+
+table.dataTable thead td{
+	border: 0;
+}
+
+.grid.tableproducts td {
+	padding: 1vh;
+	border: 1px solid black;
 }
 
 .grid.tableheader{
 	grid-template-columns: repeat(7,1fr);
-	border: 1px solid black;
 	padding: 1vh;
 }
 
@@ -77,21 +107,12 @@ span.addsuccess{
 	grid-template-columns: repeat(7,1fr);
 }
 
-.grid.tableproducts > * {
-	padding: 1vh;
-	border-left: 1px solid black;
-	border-bottom: 1px solid black;
-}
-
-.grid.tableproducts > *:last-child{
-	border-right: 1px solid black;
-}
 .grid.products .btn{
 	border-radius: 20px;
 	max-width: 20vh;
 }
 .grid.edititems{
-	grid-template-rows: repeat(3,1fr);
+	grid-template-rows: repeat(2,1fr);
 }
 /* Add Products */
 .grid.addproduct{

@@ -16,7 +16,10 @@
     <link href="../assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="../assets/css/bootstrap/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
+     <!-- datables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.dataTables.min.css">
+     <!-- Your custom styles -->
     <link href="adminassets/css/adminstyle.css" rel="stylesheet">
 </head>
 

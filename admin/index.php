@@ -32,22 +32,24 @@ $result_productsqry = mysqli_query($conn,$products_qry);
 					<h3>Products Available</h3>
 					<span class="deletemsg"></span>
 					<span class="editmsg"></span>
-					<div class="grid productlists">
-						<div class="grid tableheader">
-							<div><h5 class='text-center'>Name<i class="fa fa-caret-down" aria-hidden="true"></i></h5></div>
-							<div><h5 class='text-center'>Desc</h5></div>
-							<div><h5 class='text-center'>Stocks</h5></div>
-							<div><h5 class='text-center'>Price</h5></div>
-							<div><h5 class='text-center'>Edit Item</h5></div>
-							<div><h5 class='text-center'>Image</h5></div>
-							<div><h5 class='text-center'>Category</h5></div>
-						</div>
 
+					<table class="grid productlists">
+						<thead>
+							<tr class="grid tableheader">
+								<th data-priority="1"><p class='text-center'>Name</i></p></th>
+								<th data-priority="1"><p class='text-center'>Desc</p></th>
+								<th data-priority="1"><p class='text-center'>Stocks</p></th>
+								<th data-priority="1"><p class='text-center'>Price</p></th>
+								<th data-priority="1"><p class='text-center'>Edit Item</p></th>
+								<th data-priority="2"><p class='text-center'>Image</p></th>
+								<th data-priority="2"><p class='text-center'>Category</p></th>
+							</tr>
+						</thead>
+						<tbody>
 						<?php while($product = mysqli_fetch_assoc($result_productsqry)) :?>
-
-							<div class="grid tableproducts productid0<?= $product['id'] ?>">
+							<tr class="grid tableproducts productid0<?= $product['id'] ?>">
 								<!-- pName Cell -->
-								<div class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="1">
+								<td class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="1">
 									<div class="cellItem<?= $product['id'] ?>col1">
 										<div class="cellItem<?= $product['id'] ?>col1ReadOnly">
 											<?= $product['pName']; ?>
@@ -56,9 +58,9 @@ $result_productsqry = mysqli_query($conn,$products_qry);
 									<div class="cellItem<?= $product['id'] ?>col1 d-none">
 										<input type="text" value="<?= $product['pName']; ?>" class="cellItem<?= $product['id'] ?>col1input">
 									</div>
-								</div>
+								</td>
 								<!-- pDesc Cell -->
-								<div class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="2">
+								<td class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="2">
 									<div class="cellItem<?= $product['id'] ?>col2">
 										<div class="cellItem<?= $product['id'] ?>col2ReadOnly">
 											<?= $product['pDesc']; ?>
@@ -67,9 +69,9 @@ $result_productsqry = mysqli_query($conn,$products_qry);
 									<div class="cellItem<?= $product['id'] ?>col2 d-none">
 										<textarea cols="20" rows="10" class="cellItem<?= $product['id'] ?>col2input"><?= $product['pDesc']; ?></textarea>
 									</div>
-								</div>
+								</td>
 								<!-- pStocks Cell -->
-								<div class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="4">
+								<td class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="4">
 									<div class="cellItem<?= $product['id'] ?>col4">
 										<div class="cellItem<?= $product['id'] ?>col4ReadOnly">
 											<?= $product['pStocks']; ?>
@@ -78,9 +80,9 @@ $result_productsqry = mysqli_query($conn,$products_qry);
 									<div class="cellItem<?= $product['id'] ?>col4 d-none">
 										<input type="text" value="<?= $product['pStocks']; ?>" class="cellItem<?= $product['id'] ?>col4input">
 									</div>
-								</div>
+								</td>
 								<!-- pPrice Cell -->
-								<div class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="5">
+								<td class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="5">
 									<div class="cellItem<?= $product['id'] ?>col5">
 										<div class="cellItem<?= $product['id'] ?>col5ReadOnly">
 											<?= $product['pPrice']; ?>
@@ -89,9 +91,9 @@ $result_productsqry = mysqli_query($conn,$products_qry);
 									<div class="cellItem<?= $product['id'] ?>col5 d-none">
 										<input type="text" value="<?= $product['pPrice']; ?>" class="cellItem<?= $product['id'] ?>col5input">
 									</div>
-								</div>
+								</td>
 								<!-- Edit Items Buttons -->
-								<div class="grid edititems" data-productid="<?= $product['id'] ?>">
+								<td class="grid edititems" data-productid="<?= $product['id'] ?>">
 									<button class="btn btn-outline-brown editbtn buttonedit0<?= $product['id'] ?>">
 										<i class="fa fa-pencil" aria-hidden="true"></i>
 									</button>
@@ -101,13 +103,13 @@ $result_productsqry = mysqli_query($conn,$products_qry);
 									<button class="btn btn-outline-danger deleteitem">
 										<i class="fa fa-trash-o" aria-hidden="true"></i>
 									</button>
-								</div>
+								</td>
 								<!-- pImage Cell -->
-								<div class="grid pCell imagecell" data-productid="<?= $product['id'] ?>">
+								<td class="grid pCell imagecell" data-productid="<?= $product['id'] ?>">
 									<img src="../assets/img/<?= $product['pImage']; ?>" class="img-fluid">
-								</div>
+								</td>
 								<!-- pCategory Cell -->
-								<div class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="6">
+								<td class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="6">
 									<div class="cellItem<?= $product['id'] ?>col6 selectcat">
 										<select name="pCategory">
 											<option value="<?= $product['id'] ?>"><?= $product['cName'] ?></option>
@@ -124,11 +126,11 @@ $result_productsqry = mysqli_query($conn,$products_qry);
 									<div class="cellItem<?= $product['id'] ?>col6 d-none">
 										<input type="text" value="<?= $product['cName']; ?>" class="cellItem<?= $product['id'] ?>col6input">
 									</div>
-								</div>
-							</div>
-
+								</td>
+							</tr>
 						<?php endwhile; ?>
-					</div>
+						</tbody>
+					</table>
 				</div>
 
 			</div> <!-- #panelproducts -->

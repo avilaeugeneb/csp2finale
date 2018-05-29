@@ -17,7 +17,7 @@ $username = $_SESSION['user'];
     <div class="grid ordersuccess">
         <h1>Thanks for placing an order,<?= $username; ?>!</h1>
 
-        <p>Your order is being processed with referrence number <?= $refnumber; ?>.</p>
+        <p>Your order is being processed with reference number <?= $refnumber; ?>.</p>
 
         <p>Expect the delivery within 60 to 90 mins</p>
 	</div>

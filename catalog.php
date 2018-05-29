@@ -19,6 +19,9 @@ $result_cats = mysqli_query($conn,$category_qry);
 		
 		<!-- Nav tabs -->
 		<ul class="nav md-pills flex-column tabcatalog" role="tablist">
+			<li class="nav-item">
+				<a class="nav-link" data-toggle="tab" href="#panelall" role="tab">All Items</a>
+			</li>
 		    <?php while($category = mysqli_fetch_assoc($result_cats)): ?>
 		    	<li class="nav-item">
 	        	<a class="nav-link" data-toggle="tab" href="#panel<?=$category['id']?>" role="tab"><?=$category['cName']?></a>
@@ -26,15 +29,13 @@ $result_cats = mysqli_query($conn,$category_qry);
 		    <?php endwhile;?>
 		</ul>
 
+		<div></div>
+
 		<?php require_once './partials/productcatalog.php'; ?>
 
 	</div>
 
 	<!-- /Page ends here-->
-
-	<div style="position: fixed; bottom: 20px; left: 30px;">
-		<input type="color" name="colorpicker" class="colorpicker">
-	</div>
 
 </main>
 

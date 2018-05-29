@@ -21,7 +21,7 @@ require_once './partials/heading.php';
 			<div class="md-form">
 				<i class="fa fa-user prefix grey-text"></i>
 				<input type="text" id="loginuser" name="loginuser" class="form-control">
-				<label for="loginuser">Userame/Email</label>
+				<label for="loginuser">Username/Email</label>
 			</div>
 
 			<!-- Login input password -->

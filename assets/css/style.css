@@ -36,8 +36,10 @@
 
 body{
   min-height: 100vh;
+  /*width: 100vw;*/
   display: grid;
   grid-template-rows: 1fr auto;
+  overflow-x: hidden;
 }
 
 .wow{
@@ -111,15 +113,25 @@ a{
 	box-shadow: var(--pxvalues) var(--transparent);
 }
 
+main.maincontent{
+	width: 100vw;
+}
+
 /*
 *
 * Navbars
 *
 */
+
+.navbar_notxs{
+	display: none;
+}
 nav#secondnav{
 	max-height: calc(var(--vh)*3);
+	width: 100vw;
 }
 nav#mainnav{
+	width: 100vw;
 	position: sticky;
 	top: 0;
 	z-index: 10;
@@ -127,6 +139,21 @@ nav#mainnav{
 	font-size: 1.5em;
 	font-weight: bolder;
 }
+
+.navbar_xs ul{
+	display: grid;
+	grid-template-columns: repeat(5,1fr);
+	place-items: center;
+	width: 100%;
+}
+
+.navbar_xs ul li{
+	text-align: center;
+	font-size: 20px;
+}
+
+
+
 
 /*
 *
@@ -143,6 +170,7 @@ nav#mainnav{
 		position: relative;
 		border-radius: 50px;
 		place-items: center;
+		display: none;
 	}
 	.grid.imagecont{
 		height: calc(var(--vh)*100);
@@ -165,7 +193,7 @@ nav#mainnav{
 		}
 	.shadow{
 		position: absolute;
-		width: 100%;
+		width: 100vw;
 		height: calc(var(--vh)*100);
 		z-index: -2;
 		content: "";
@@ -187,6 +215,7 @@ nav#mainnav{
 	}
 		.highlight{
 			padding: var(--vh);
+			width: 100vw;
 			font-size: 2em;
 			line-height: 2em;
 			background-color: var(--theme-color);
@@ -194,7 +223,7 @@ nav#mainnav{
 
 	.grid.feats{
 		min-height: 90vh;
-		grid-template-columns: var(--fr3);
+		grid-template-columns: var(--fr1);
 		grid-gap: var(--vh);
 	}
 		.grid.feat{
@@ -218,7 +247,9 @@ nav#mainnav{
 
 	.grid.faqs{
 		min-height: 90vh;
-		grid-template-columns: var(--fr2);
+		width: 90vw;
+		margin: 0 auto;
+		grid-template-columns: var(--fr1);
 	}
 		.grid.faqstext{
 			padding: calc(var(--vh)*5);
@@ -228,6 +259,7 @@ nav#mainnav{
 		.grid.faqstext li{
 			color: var(--theme-color);
 			font-weight: bolder;
+			font-size: 0.8em;
 		}
 		
 	.grid.faqs ol{
@@ -243,10 +275,14 @@ nav#mainnav{
 		position: relative;
 		z-index: -1;
 	}
+	.faq-img{
+		width: 90%;
+		margin: 0 auto;
+	}
 .shopnow {
 	position: fixed;
-	bottom: 60px;
-	right: 60px;
+	bottom: 5vh;
+	right: 5vw;
 	background: white;
 	color: var(--theme-color);
 	border-radius: 50px;
@@ -286,7 +322,7 @@ nav#mainnav{
 }
 
 .register form {
-	min-width: calc(var(--vh)*80);
+	min-width: calc(var(--vw)*50);
 }
 
 .register form div label span[class*="error"] {
@@ -323,17 +359,21 @@ nav#mainnav{
 *
 */
 .grid.productscont{
-	padding: calc(var(--vh)*5);
-	grid-template-columns: 2fr 10fr;
+	padding: calc(var(--vh)*2);
+	grid-template-columns: var(--fr1);
 }
 	ul.tabcatalog{
 		color: var(--theme-color);
-		padding-top: 8vh;
+		padding-top: 0vh;
+		display: grid;
+		grid-template-columns: var(--fr2);
+		width: 90vw;
+		margin: 0 auto;
 	}	
 		ul.tabcatalog li {
 			border: 1px solid var(--theme-color);
-			margin: 1vh;
-			border-radius: 45px;
+			margin: 0.5vh;
+			border-radius: 20px;
 			text-align: center;
 		}
 		ul.tabcatalog li:hover,
@@ -343,7 +383,7 @@ nav#mainnav{
 			
 		}
 		ul.tabcatalog li a{
-			font-size: 1.2em;
+			font-size: 0.8em;
 			font-weight: bolder;
 			letter-spacing: 0.2em;
 		}
@@ -353,9 +393,8 @@ nav#mainnav{
 		}
 
 	.grid.catalog{
-		grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
+		grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
 		grid-template-rows: auto;
-		grid-area: catalog;
 	}
 
 		.grid.item{
@@ -370,10 +409,20 @@ nav#mainnav{
 		.grid.item div img{
 			height: calc(var(--vh)*15);
 		}
+li.cart {
+	position: relative;
+}
+
+li.cart a{
+	overflow: visible;
+}
 
 span.totalprice{
-	color: white;
 	font-weight: bold;
+	font-size: 0.6em;
+	position: absolute;
+	top: 0%;
+	left: 50%;
 }
 
 .grid.cartbuttons{
@@ -428,12 +477,11 @@ span.totalprice{
 	.grid.btshop a:hover{
 		color: var(--theme-color);
 		font-size: 1.5em;
-		transform: translateX(-50px);
 	}
 
 	.grid.cartheader,
 	.grid.cartitems{
-		grid-template-columns: var(--fr4);
+		grid-template-columns: 2fr 1fr 1fr;
 		grid-template-rows: minmax(20px, 40px);
 	}
 	.grid.cartitems p{
@@ -442,7 +490,7 @@ span.totalprice{
 
 .editqty input {
 	border-radius: 20px;
-	min-width: 4vw;
+	min-width: 50%;
 	max-width: 6vw;
 	text-align: center;
 	outline: none;
@@ -450,6 +498,7 @@ span.totalprice{
 	background: var(--theme-color);
 	color: white;
 	padding: 0.5vh;
+	font-weight: bold;
 }
 
 .editqty i{
@@ -457,10 +506,6 @@ span.totalprice{
 	cursor: pointer;
 }
 	.editqty i:nth-child(2){
-		color: var(--theme-color);
-	}
-
-	.editqty i:nth-child(3){
 		color: red;
 	}
 
@@ -468,7 +513,7 @@ span.totalprice{
 	background: var(--transparent);
 }
 .grid.totalcont{
-	grid-template-columns: 5fr 2fr;
+	grid-template-columns: var(--fr1);
 	grid-gap: 1vh;
 }
 .grid.totalcont > button {
@@ -604,6 +649,7 @@ footer.page-footer{
 	background: var(--theme-color);
 	grid-row-start: 2;
 	grid-row-end: 3;
+	width: 100vw;
 }
 footer.page-footer h4,
 footer.page-footer h5,

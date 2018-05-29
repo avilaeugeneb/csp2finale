@@ -16,8 +16,14 @@
     <link href="assets/css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="assets/css/bootstrap/mdb.min.css" rel="stylesheet">
-    <!-- Your custom styles (optional) -->
+    <!-- Import external stylesheet : Mobile-first -->
     <link href="assets/css/style.css" rel="stylesheet">
+    
+    <!-- Import medium device stylesheet -->
+    <link rel="stylesheet" media="only screen and (min-width: 768px) and (max-width: 992px)" href="assets/css/mediumscreen.css">
+
+    <!-- Import desktop stylesheet -->
+    <link rel="stylesheet" media="only screen and (min-width: 992px)" href="assets/css/desktopscreen.css">
 </head>
 
 <body>

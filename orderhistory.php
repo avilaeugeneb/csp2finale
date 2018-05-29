@@ -23,7 +23,7 @@
     ?>
     <div class="historycontainer">    
         <div class="grid history">
-            <h3 class="text-center">Referrence Number</h3>
+            <h3 class="text-center">Reference Number</h3>
             <h3 class="text-center">Order Status</h3>
             <h3 class="text-center">Items</h3>
         </div>

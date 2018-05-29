@@ -166,6 +166,7 @@ $(document).ready(function(){
 			$(qtyclass).val(1);
 			qty = 1;
 		}
+		$(this).siblings(btnclass).toggleClass('d-none');
 		
 		$.ajax({
 			url:'./lib/addtocart.php',
@@ -173,7 +174,6 @@ $(document).ready(function(){
 			data:{'pid':pID,'quantity':qty}
 		}).done(function(data){
 			$('span.totalprice').html(data);
-			$(btnclass).toggleClass('d-none');
 		});
 
 		$(this).toggleClass('d-none');
@@ -190,7 +190,13 @@ $(document).ready(function(){
 			method:'POST',
 			data:{'pid':pID,'quantity':qty}
 		}).done(function(data){
-			$('span.totalprice').html(data);
+			if(data == "(₱0)"){
+				$('span.totalprice').html('');
+			}
+			else{
+				$('span.totalprice').html(data);
+			}
+			
 		});
 	});
 
@@ -209,7 +215,12 @@ $(document).ready(function(){
 			method:'POST',
 			data:{'pid':pID,'quantity':qty}
 		}).done(function(data){
-			$('span.totalprice').html(data);
+			if(data == "(₱0)"){
+				$('span.totalprice').html('');
+			}
+			else{
+				$('span.totalprice').html(data);
+			}
 		});
 	});
 
@@ -225,9 +236,15 @@ $(document).ready(function(){
  		var newsubprice = inputqty * unitprice;
  		subprice.html("₱"+newsubprice);
 
+ 		if(inputqty<=0){
+ 			$(this).parent().parent().toggleClass('d-none');
+ 			$(this).val(0);
+ 		}
+
  		var uprices = $('.unitprice');
  		var qtys = $('.editinputqty');
  		var totalprice = 0;
+
 
  		for (var i=0; i < uprices.length; i++) {
  			var uprice = uprices[i].attributes[1].value;
@@ -235,6 +252,7 @@ $(document).ready(function(){
  			var subtotal = uprice * qty;
  			totalprice += subtotal;
  		}
+
 
  		totalprice = totalprice.toLocaleString(undefined, {
 		  minimumFractionDigits: 2,
@@ -249,7 +267,14 @@ $(document).ready(function(){
 			method:'POST',
 			data:{'pid':itemid,'quantity':inputqty}
 		}).done(function(data){
-			$('span.totalprice').html(data);
+			if(data == "(₱0)"){
+				$('span.totalprice').html('');
+				$('.grid.cart').hide();
+				$('main.content').append('<h2 class="grid page-header single">Your Cart is Empty!</h2>');
+			}
+			else{
+				$('span.totalprice').html(data);
+			}
 		});
  	});
  	/*
@@ -293,8 +318,17 @@ $(document).ready(function(){
  			method:'POST',
  			data:{"pid":id,"quantity":qty}
  		}).done(function(data){
- 			$('span.totalprice').html(data);
- 			$('.totalpricebot').html(data);
+ 			if(data == "(₱0)"){
+				$('span.totalprice').html(' ');
+				$('.totalpricebot').html(' ');
+				$('.grid.cart').hide();
+				$('main.content').append('<h2 class="grid page-header single">Your Cart is Empty!</h2>');
+			}
+			else{
+				$('span.totalprice').html(data);
+				$('.totalpricebot').html(data);
+			}
+ 			
  		});
 	 });
 	 
@@ -317,7 +351,18 @@ $(document).ready(function(){
 	$('.colorpicker').on('change',function(){
 		var color = $(this).val();
 		$(':root').css('--theme-color',color);
+		$.ajax({
+			url: './lib/sessioncolor.php',
+			method: "POST",
+			data: {"color": color}
+		}).done(function(){
+			console.log(color);
+			console.log('color changed');
+		});
 	});
+
+	var sessioncolor = $('.colorpicker').val();
+	$(':root').css('--theme-color',sessioncolor);
 	
 });
 

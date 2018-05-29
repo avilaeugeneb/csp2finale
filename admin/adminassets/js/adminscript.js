@@ -1,4 +1,18 @@
-
+// $(document).ready( function () {
+    $('.productlists').DataTable({
+    	"autoWidth": true,
+    	responsive:true,
+    	columns: [
+        { responsivePriority: 7 },
+        { responsivePriority: 6 },
+        { responsivePriority: 5 },
+        { responsivePriority: 4 },
+        { responsivePriority: 3 },
+        { responsivePriority: 2 },
+        { responsivePriority: 1 }
+   		]
+    });
+// } );
 /*
  * Items.php
  */
@@ -85,7 +99,7 @@ $('.clearfields').on('click',function(){
 // 	readOnly.html(inputval);
 // });
 
-$('.btn.editbtn').on('click',function(){
+$(document).on('click','.btn.editbtn',function(){
 	var id = $(this).parent().data('productid');
 	var btntarget = '.buttonsave0'+id;
 	//cells
@@ -101,8 +115,7 @@ $('.btn.editbtn').on('click',function(){
 	$(this).toggleClass('d-none');
 	$(btntarget).toggleClass('d-none');
 });
-
-$('.btn.savebtn').on('click',function(){
+$(document).on('click','.btn.savebtn',function(){
 	var id = $(this).parent().data('productid');
 	var btntarget = '.buttonedit0'+id;
 	//cells
@@ -159,25 +172,32 @@ $('.btn.savebtn').on('click',function(){
 
 
 //Delete items
-$('.btn.deleteitem').on('click',function(){
+$(document).on('click','.btn.deleteitem',function(){
 	var itemid = $(this).parent().data('productid');
 	$('.deletefinal').data('itemid',itemid);	
 	$('#deletemodal').modal('toggle');
 });
 
-$('.btn.deletefinal').on('click',function(){
+$(document).on('click','.btn.deletefinal',function(){
 	var itemid = $('.deletefinal').data('itemid');
-
+	console.log(itemid)
 	$.ajax({
 		url:'./adminlib/deleteitem.php',
 		method: 'POST',
 		data: {'itemid':itemid}
-	}).done(function(){
+	}).done(function(data){
 		$('#deletemodal').modal('toggle');
-		var divclass = '.productid0'+itemid;
-		$(divclass).hide();
-		$('span.deletemsg').show();
-		$('span.deletemsg').html('Item Successfully Deleted!');
-		$('span.deletemsg').fadeOut(2500);
+		if(data=="This item is in some users' cart"){
+	 		$('span.deletemsg').show();
+			$('span.deletemsg').html(data);
+			$('span.deletemsg').fadeOut(3500);
+ 		}else{
+			var divclass = '.productid0'+itemid;
+			$(divclass).hide();
+			$('span.deletemsg').show();
+			$('span.deletemsg').html(data);
+			$('span.deletemsg').fadeOut(3500);
+ 		}
+		
 	});
 });

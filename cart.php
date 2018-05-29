@@ -30,15 +30,21 @@ require_once './partials/heading.php';
 					$result_products = mysqli_query($conn,$products_qry);
 			?>
 				<div class="grid btshop">
-					<h2>Your Cart</h2>
-					<p><a href="./catalog.php#mainnav">&#8592;Back to shopping</a></p>
+					<h2 class="d-none d-md-block">Your Cart</h2>
+					<h2 class="d-block d-md-none text-center">Cart</h2>
+					<p class="d-none d-md-block"><a href="./catalog.php#mainnav">&#8592;Back to shopping</a></p>
+					<p class="d-block d-md-none text-center"><a href="./catalog.php#mainnav">&#8592;Back</a></p>
 				</div>
 				<span class="deletemessage"></span>
 				<div class="grid cartheader">
-					<h4>Product</h4>
-					<h4>Quantity</h4>
-					<h4>Price</h4>
-					<h4>Subtotal</h4>
+					<h4 class="d-none d-md-block">Product</h4>
+					<h4 class="d-none d-md-block">Quantity</h4>
+					<h4 class="d-none d-md-block">Price</h4>
+					<h4 class="d-none d-md-block">Subtotal</h4>
+
+					<h4 class="d-block d-md-none text-center"><i class="fa fa-shopping-bag" aria-hidden="true"></i></h4>
+					<h4 class="d-block d-md-none"><i class="fa fa-list-ol" aria-hidden="true"></i></h4>
+					<h4 class="d-block d-md-none text-center"><i class="fa fa-rub" aria-hidden="true"></i></h4>
 				</div>
 
 				<?php while($products = mysqli_fetch_assoc($result_products)):?>
@@ -46,11 +52,10 @@ require_once './partials/heading.php';
 					<div class="wow flipInX grid cartitems" data-productid="<?=$products['id'] ?>">
 						<p><?= $products['pName']?></p>
 						<div class="editqty">
-							<input class="editinputqty" type="number" name="qtyproduct" value="<?= $_SESSION['cart'][$products['id']] ?>">	
-							<i class="fa fa-pencil" aria-hidden="true"></i>
+							<input class="editinputqty" type="number" name="qtyproduct" value="<?= $_SESSION['cart'][$products['id']] ?>">
 							<i class="deletecartitem fa fa-trash" aria-hidden="true"></i>
 						</div>
-						<p class="unitprice" data-unitprice="<?= $products['pPrice'] ?>"><?= "₱".$products['pPrice'] ?></p>
+						<p class="unitprice d-none d-md-block" data-unitprice="<?= $products['pPrice'] ?>"><?= "₱".$products['pPrice'] ?></p>
 						<p class="subprice"><?= "₱".$products['pPrice'] * $_SESSION['cart'][$products['id']] ?></p>
 					</div>
 
