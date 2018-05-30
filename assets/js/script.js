@@ -107,19 +107,19 @@ $(document).ready(function(){
 	 */
 
 	$('button.userFirstNamebtn').on('click',function(){
-		$('input#userFirstNameinput').prop('readonly',false);
+		$('input#userFirstNameinput').attr('readonly', function(_, attr){ return !attr});
 	});
 
 	$('button.userLastNamebtn').on('click',function(){
-		$('input#userLastNameinput').prop('readonly',false);
+		$('input#userLastNameinput').attr('readonly', function(_, attr){ return !attr});
 	});
 
 	$('button.userEmailbtn').on('click',function(){
-		$('input#userEmailinput').prop('readonly',false);
+		$('input#userEmailinput').attr('readonly', function(_, attr){ return !attr});
 	});
 
 	$('button.userCitybtn').on('click',function(){
-		$('input#userCityinput').prop('readonly',false);
+		$('input#userCityinput').attr('readonly', function(_, attr){ return !attr});
 	});
 
 	$('button.profilesave').on('click',function(){
@@ -267,7 +267,7 @@ $(document).ready(function(){
 			method:'POST',
 			data:{'pid':itemid,'quantity':inputqty}
 		}).done(function(data){
-			if(data == "(₱0)"){
+			if(data == "(₱0)"){	
 				$('span.totalprice').html('');
 				$('.grid.cart').hide();
 				$('main.content').append('<h2 class="grid page-header single">Your Cart is Empty!</h2>');
@@ -334,7 +334,7 @@ $(document).ready(function(){
 	 
 	 /*
  	 *  Order History
- 	 */
+	 */
 	 $('.historyitems.btn').on('click',function(){
 		 var orderid = $(this).parent().parent().data('orderid');
 		 var orderclass = '.orderhistory'+orderid;

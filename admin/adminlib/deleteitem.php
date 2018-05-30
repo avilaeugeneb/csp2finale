@@ -11,3 +11,7 @@ if($delete_qry){
 }else{
 	echo "This item is in some users' cart";
 }
+
+
+
+?>

@@ -10,6 +10,9 @@
             <li class="nav-item partner-links">
                 <a class="nav-link" href="./orders.php">Orders</a>
             </li>
+             <li class="nav-item partner-links">
+                <a class="nav-link" href="./users.php">User</a>
+            </li>
         </ul>
     </div>
 

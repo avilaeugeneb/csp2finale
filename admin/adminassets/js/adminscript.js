@@ -1,18 +1,21 @@
-// $(document).ready( function () {
-    $('.productlists').DataTable({
-    	"autoWidth": true,
-    	responsive:true,
-    	columns: [
-        { responsivePriority: 7 },
-        { responsivePriority: 6 },
-        { responsivePriority: 5 },
-        { responsivePriority: 4 },
-        { responsivePriority: 3 },
-        { responsivePriority: 2 },
-        { responsivePriority: 1 }
-   		]
-    });
-// } );
+
+$('.productlists').DataTable({
+	"autoWidth": true,
+	responsive:true
+});
+
+$('.ordercontainer').DataTable({
+	"autoWidth": true,
+	responsive:true
+});
+
+$('.userscontainer').DataTable({
+	"autoWidth": true,
+	responsive:true
+});
+
+
+
 /*
  * Items.php
  */
@@ -89,7 +92,7 @@ $('.clearfields').on('click',function(){
 //Edit/Update Items
 
 /* Reserved code */
-// $('[class*=pCell]').on('dblclick',function(){
+// $(document).on('dblclick','[class*=pCell]',function(){
 // 	var pId = $(this).data('productid');
 // 	var col = $(this).data('col');
 // 	var cellClass = '.cellItem'+pId+'col'+col;
@@ -115,6 +118,7 @@ $(document).on('click','.btn.editbtn',function(){
 	$(this).toggleClass('d-none');
 	$(btntarget).toggleClass('d-none');
 });
+
 $(document).on('click','.btn.savebtn',function(){
 	var id = $(this).parent().data('productid');
 	var btntarget = '.buttonedit0'+id;

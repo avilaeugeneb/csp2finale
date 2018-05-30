@@ -24,3 +24,16 @@
 </head>
 
 <body>
+<?php
+    session_start(); 
+    require_once '../lib/connect.php';
+    $username = $_SESSION['user'];
+
+    $userinfo_qry = "SELECT userRole FROM users WHERE userUid = '$username'";
+    $result_userinfo = mysqli_query($conn,$userinfo_qry);
+    $userinfo = mysqli_fetch_assoc($result_userinfo);
+
+    if($userinfo['userRole']==2)
+        echo '<script>window.location.href="../index.php"</script>';
+
+?>

@@ -36,13 +36,13 @@ $result_productsqry = mysqli_query($conn,$products_qry);
 					<table class="grid productlists">
 						<thead>
 							<tr class="grid tableheader">
-								<th data-priority="1"><p class='text-center'>Name</i></p></th>
-								<th data-priority="1"><p class='text-center'>Desc</p></th>
-								<th data-priority="1"><p class='text-center'>Stocks</p></th>
-								<th data-priority="1"><p class='text-center'>Price</p></th>
-								<th data-priority="1"><p class='text-center'>Edit Item</p></th>
-								<th data-priority="2"><p class='text-center'>Image</p></th>
-								<th data-priority="2"><p class='text-center'>Category</p></th>
+								<th><p class='text-center'>Name</i></p></th>
+								<th><p class='text-center'>Desc</p></th>
+								<th><p class='text-center'>Stocks</p></th>
+								<th><p class='text-center'>Price</p></th>
+								<th><p class='text-center'>Edit Item</p></th>
+								<th><p class='text-center'>Image</p></th>
+								<th><p class='text-center'>Category</p></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -67,7 +67,7 @@ $result_productsqry = mysqli_query($conn,$products_qry);
 										</div>
 									</div>
 									<div class="cellItem<?= $product['id'] ?>col2 d-none">
-										<textarea cols="20" rows="10" class="cellItem<?= $product['id'] ?>col2input"><?= $product['pDesc']; ?></textarea>
+										<textarea cols="10" rows="4" class="cellItem<?= $product['id'] ?>col2input"><?= $product['pDesc']; ?></textarea>
 									</div>
 								</td>
 								<!-- pStocks Cell -->
@@ -112,14 +112,17 @@ $result_productsqry = mysqli_query($conn,$products_qry);
 								<td class="grid pCell" data-productid="<?= $product['id'] ?>" data-col="6">
 									<div class="cellItem<?= $product['id'] ?>col6 selectcat">
 										<select name="pCategory">
-											<option value="<?= $product['id'] ?>"><?= $product['cName'] ?></option>
 
 											<?php 
 											$categories_qry = "SELECT id,cName FROM categories WHERE parent = 0";
 											$result_catqry = mysqli_query($conn,$categories_qry);
 
 											while($category = mysqli_fetch_assoc($result_catqry)):?>
-												<option value="<?=$category['id']; ?>"><?= $category['cName'];?></option>
+												<option value="<?=$category['id']; ?>"
+													if()
+														
+
+													><?= $category['cName'];?></option>
 											<?php endwhile; ?>
 										</select>
 									</div>

@@ -58,7 +58,7 @@
 		<?php if(isset($_SESSION['color'])): ?>
 			<?= $_SESSION['color'] ?>
 		<?php else: ?>
-			'#00843C'
+			'#87004a'
 		<?php endif;?>
 		>
 </div>
